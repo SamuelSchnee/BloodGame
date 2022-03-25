@@ -281,12 +281,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mustPatrol: 0
   moveSpeed: 200
+  attackRange: 3
   enemyRb: {fileID: 329795466}
   groundCheckPos: {fileID: 476124703}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   bodyCollider: {fileID: 329795469}
+  player: {fileID: 926819486}
 --- !u!50 &329795466
 Rigidbody2D:
   serializedVersion: 4
@@ -332,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329795464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.37, y: 0.101, z: -32.39765}
+  m_LocalPosition: {x: 14.66, y: -4.395, z: -32.39765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1898102994}
@@ -503,7 +505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -696,7 +698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756828842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.13, y: -0.9, z: 0}
+  m_LocalPosition: {x: 15.42, y: -5.387, z: 0}
   m_LocalScale: {x: 6.6261625, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -994,7 +996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039571441}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 10.96, y: 0.35, z: 0}
+  m_LocalPosition: {x: 18.25, y: -4.146, z: 0}
   m_LocalScale: {x: 3.4794643, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

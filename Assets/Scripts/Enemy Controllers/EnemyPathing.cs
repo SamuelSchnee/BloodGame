@@ -8,11 +8,15 @@ public class EnemyPathing : MonoBehaviour
     private bool mustTurn;
 
     public float moveSpeed;
+    public float attackRange;
+    private float distToPlayer;
 
     public Rigidbody2D enemyRb;
     public Transform groundCheckPos;
     public LayerMask groundLayer;
     public Collider2D bodyCollider;
+
+    public Transform player;
 
     void Start()
     {
@@ -25,6 +29,24 @@ public class EnemyPathing : MonoBehaviour
         if (mustPatrol)
         {
             Patrol();
+        }
+
+        distToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if(distToPlayer <= attackRange)
+        {
+            if (player.position.x > transform.position.x && transform.localScale.x < 0 
+                || player.position.x < transform.position.x && transform.localScale.x > 0)
+            {
+                Flip();
+            }
+            mustPatrol = false;
+            enemyRb.velocity = Vector2.zero;
+            Shoot();
+        }
+        else
+        {
+            mustPatrol = true;
         }
     }
 
@@ -51,5 +73,10 @@ public class EnemyPathing : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         moveSpeed *= -1;
         mustPatrol = true;
+    }
+
+    void Shoot()
+    {
+
     }
 }
