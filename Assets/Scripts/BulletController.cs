@@ -4,61 +4,52 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public GameObject spawner;
+    public GameObject target;
 
-    public float bulletSpeed = 100;
+    public Vector2 targetLocation;
+    public Vector2 bulletLocation;
+    public Vector2 targetDirection;
 
-    private PlayerController playerCnt;
+    private bool targetFound;
 
-    private Rigidbody2D bulletRB;
+    private Rigidbody2D bulletRb;
 
-    public Vector2 shootDirection;
+    public float bulletSpeed = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        bulletRB = GetComponent<Rigidbody2D>();
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 spawnerPos = new Vector2(spawner.transform.position.x, spawner.transform.position.y);
-        Vector2 direction = mousePos - spawnerPos;
-        bulletRB.velocity = direction * bulletSpeed;
-    }
-
-    private void Awake()
-    {
-
+        bulletRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        bulletLocation = gameObject.transform.position;
 
-
-        //bulletRB.AddForce(Vector2.right * bulletSpeed * Time.deltaTime);
-
-
-        //shootDirection = Input.mousePosition;
-        //shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
-
-        /*if (target != null)
+        if (target != null)
         {
-            followTarget();
-        }*/
+            Debug.Log("target transfered");
+            trackingTarget();
+        }
     }
 
-    /*void followTarget()
+    private void trackingTarget()
     {
-        Vector3 targetPosition = target.transform.position;
-        transform.LookAt(targetPosition);
-        transform.Translate(Vector3.forward * bulletSpeed);
-    }*/
+        targetLocation = target.transform.position;
+
+        targetDirection = targetLocation - bulletLocation;
+        targetDirection.Normalize();
+
+        bulletRb.velocity = Vector2.zero;
+
+        targetDirection *= bulletSpeed;
+
+        bulletRb.AddForce(targetDirection, ForceMode2D.Impulse);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "enemy")
-        {
-            Debug.Log("enemyHit");
-            Destroy(this.gameObject);
-        }
+
     }
 }

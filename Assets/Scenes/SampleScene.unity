@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 329795467}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mustPatrol: 0
   moveSpeed: 200
-  attackRange: 3
+  attackRange: 5.05
   enemyRb: {fileID: 329795466}
   groundCheckPos: {fileID: 476124703}
   groundLayer:
@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 1891408694}
   - component: {fileID: 1891408693}
   - component: {fileID: 1891408695}
+  - component: {fileID: 926819488}
   - component: {fileID: 926819487}
   m_Layer: 0
   m_Name: PlayerController
@@ -856,8 +857,6 @@ MonoBehaviour:
   gameSpeed: 0
   jumpStrength: 0
   jump: 0
-  bullet: {fileID: 6428237315257264099, guid: a6c0da69a3de3c740b41161d1f2d4187, type: 3}
-  bulletSpawnpoint: {fileID: 1566794849}
   controller: {fileID: 1891408693}
 --- !u!4 &926819486
 Transform:
@@ -892,6 +891,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.35}
   serializedVersion: 2
   m_Radius: 0.32380456
+--- !u!114 &926819488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926819484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5a046cd21c0ab489b08f3511b5b7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 168817250231034951, guid: 9d34aa33556dfd448a2b184838af4544, type: 3}
+  mousePos: {x: 0, y: 0}
+  spawnPoint: {fileID: 1566794849}
+  bulletSpeed: 1.25
 --- !u!1 &1039571441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566794849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.69, y: 0.15951592, z: -17.365377}
+  m_LocalPosition: {x: 0.94, y: 0.15951592, z: 0}
   m_LocalScale: {x: 1.5094339, y: 0.74397916, z: 1}
   m_Children: []
   m_Father: {fileID: 1151520197}

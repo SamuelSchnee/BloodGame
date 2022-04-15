@@ -14,9 +14,6 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerRb;
 
-    public GameObject bullet;
-    public GameObject bulletSpawnpoint;
-
     public CharacterController2D controller;
 
     // Start is called before the first frame update
@@ -31,8 +28,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 spawnerPos = new Vector2(bulletSpawnpoint.transform.position.x, bulletSpawnpoint.transform.position.y);
-
         horizontalInput = Input.GetAxis("Horizontal") * gameSpeed * speed;
 
         if (Input.GetButtonDown("Jump"))
@@ -46,12 +41,6 @@ public class PlayerController : MonoBehaviour
             //transform.Translate(new Vector3(0, jumpStrength, 0) * Time.deltaTime);
             playerRb.AddForce(Vector2.up * jumpStrength * gameSpeed);
         }*/
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            //Instantiate(bullet, spawnerPos, Quaternion.identity );
-            bullet = (GameObject)Instantiate(bullet, spawnerPos, Quaternion.identity);
-        }
     }
     private void FixedUpdate()
     {
