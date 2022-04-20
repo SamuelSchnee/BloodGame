@@ -38,7 +38,7 @@ public class SlamEnemyController : MonoBehaviour
             StartCoroutine(Slam());
             attacking = true;
         }
-        if (doneAttacking)
+        if (doneAttacking == true)
         {
             AfterAttacking();
         }
@@ -54,6 +54,8 @@ public class SlamEnemyController : MonoBehaviour
         {
             enemyrb.velocity = Vector2.zero;
             pathing.mustPatorl = true;
+            Debug.Log("returnToPathing");
+            doneAttacking = false;
         }
     }
 
@@ -64,7 +66,6 @@ public class SlamEnemyController : MonoBehaviour
 
         if (groundBody.IsTouchingLayers(groundLayer))
         {
-            Debug.Log("actually worked");
             enemyrb.velocity = Vector2.zero;
             StartCoroutine(Attack());
         }
