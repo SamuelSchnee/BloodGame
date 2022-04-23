@@ -8,6 +8,7 @@ TagManager:
   - player
   - bullet
   - enemyDetector
+  - platform
   layers:
   - Default
   - TransparentFX
