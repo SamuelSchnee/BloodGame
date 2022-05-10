@@ -23,9 +23,17 @@ public class PlatformCheclk : MonoBehaviour
             Debug.Log("colliding");
             Collider2D platformCollider = other.gameObject.GetComponent<Collider2D>();
             platformCollider.isTrigger = false;
+        }
+    }
 
-            if(Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.Space))
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "platform")
+        {
+            if (Input.GetKeyDown(KeyCode.S))
             {
+                Collider2D platformCollider = collision.gameObject.GetComponent<Collider2D>();
+                Debug.Log("hitting s");
                 platformCollider.isTrigger = true;
             }
         }

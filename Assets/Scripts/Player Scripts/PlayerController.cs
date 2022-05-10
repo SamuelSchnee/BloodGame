@@ -21,14 +21,14 @@ public class PlayerController : MonoBehaviour
     {
         speed = 5;
         gameSpeed = 1;
-        jumpStrength = 10;
+        jumpStrength = 20;
         playerRb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal") * gameSpeed * speed;
+        horizontalInput = Input.GetAxis("Horizontal") * speed;
         transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
 
         /*if (Input.GetButtonDown("Jump"))
