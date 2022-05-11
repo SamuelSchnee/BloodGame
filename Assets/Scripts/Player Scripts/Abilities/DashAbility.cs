@@ -41,8 +41,8 @@ public class DashAbility : Ability
 
     private void Dash()
     {
-        Vector2 destination = dashDestination.transform.position;
-        transform.position = destination;
+
+        transform.position += (5, 0);
         dashing = false;
         playerCnt.canMove = true;
     }
