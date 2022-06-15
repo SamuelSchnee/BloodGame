@@ -4,46 +4,70 @@ using UnityEngine;
 
 public class DashAbility : Ability
 {
-    public Rigidbody2D playerRb;
     public bool dashing;
-    Vector2 dashDistance;
+    public float dashDistance;
     public PlayerController playerCnt;
-
-    public Transform dashDestination;
+    public Rigidbody2D playerBody;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerBody = GetComponent<Rigidbody2D>();
         playerCnt = GetComponent<PlayerController>();
-        playerRb = GetComponent<Rigidbody2D>();
         cooldownLength = 20.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cooldownLength <= 0)
+        if(cooldown <= 0)
         {
             readyToUse = true;
+        }
+        else
+        {
+            readyToUse = false;
+            cooldown -= .5f;
         }
 
         if(Input.GetKeyDown(KeyCode.Tab) && readyToUse == true)
         {
-            dashing = true;
+            //dashing = true;
+            /* playerCnt.canMove = false;
+             transform.position = new Vector2(transform.position.x + dashDistance, transform.position.y);
+             playerCnt.canMove = true;
+             cooldown = cooldownLength;
+             Debug.Log("dashing");*/
+            StartCoroutine(Dash());
         }
 
-        if(dashing == true)
+        /*if(dashing == true)
         {
             playerCnt.canMove = false;
+            readyToUse = false;
             Invoke("Dash", 2);
-        }
+        }*/
     }
 
-    private void Dash()
+    IEnumerator Dash()
     {
-
-       // transform.position += (5, 0);
-        dashing = false;
+        readyToUse = false;
+        playerCnt.canMove = false;
+        playerBody.gravityScale = 0;
+        playerBody.velocity = Vector2.zero;
+        yield return new WaitForSecondsRealtime(.25f);
+        transform.position = new Vector2(transform.position.x + dashDistance, transform.position.y);
+        yield return new WaitForSecondsRealtime(.2f);
         playerCnt.canMove = true;
+        playerBody.gravityScale = 3;
+        cooldown = cooldownLength;
     }
+    /*void Dash()
+    {
+        
+        playerCnt.canMove = true;
+        dashing = false;
+        cooldown = cooldownLength;
+        transform.position = new Vector2(transform.position.x + dashDistance, transform.position.y);
+    }*/
 }
