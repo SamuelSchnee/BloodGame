@@ -1356,13 +1356,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownLength: 0
+  cooldown: 0
   charges: 0
   damage: 0
   readyToUse: 0
-  playerRb: {fileID: 1891408692}
   dashing: 0
+  dashDistance: 5
   playerCnt: {fileID: 0}
-  dashDestination: {fileID: 1098504334}
+  playerBody: {fileID: 0}
 --- !u!1 &1000685978
 GameObject:
   m_ObjectHideFlags: 0
