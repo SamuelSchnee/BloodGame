@@ -42,7 +42,7 @@ public class DashAbility : Ability
     private void Dash()
     {
 
-        transform.position += (5, 0);
+       // transform.position += (5, 0);
         dashing = false;
         playerCnt.canMove = true;
     }
