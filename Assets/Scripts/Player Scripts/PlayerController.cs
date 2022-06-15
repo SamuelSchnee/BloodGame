@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpStrength;
 
     public bool jump = false;
+    public bool canMove = true;
 
     public Rigidbody2D playerRb;
 
@@ -28,8 +29,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal") * speed;
-        transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
+        if (canMove == true)
+        {
+            horizontalInput = Input.GetAxis("Horizontal") * speed;
+            transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
+        }
 
         /*if (Input.GetButtonDown("Jump"))
         {
