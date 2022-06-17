@@ -9,4 +9,5 @@ public class Ability : MonoBehaviour
     public int charges;
     public float damage;
     public bool readyToUse;
+    public float cooldownSpeed;
 }

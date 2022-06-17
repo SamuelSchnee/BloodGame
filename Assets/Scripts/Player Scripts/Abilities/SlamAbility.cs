@@ -26,10 +26,21 @@ public class SlamAbility : Ability
         {
             grounded = false;
         }
-
-        if(grounded == false && Input.GetKeyDown(KeyCode.Alpha1))
+        if(cooldown >= 0)
         {
-            playerBody.AddForce(Vector2.down * Time.deltaTime * slamSpeed);
+            cooldown -= cooldownSpeed;
+        }
+        if(cooldown <= 0)
+        {
+            readyToUse = true;
+        }
+
+        if(grounded == false && Input.GetKeyDown(KeyCode.Alpha1) && readyToUse == true)
+        {
+            playerBody.velocity = Vector2.zero;
+            playerBody.AddForce(Vector2.down * slamSpeed, ForceMode2D.Impulse);
+            readyToUse = false;
+            cooldown = cooldownLength;
         }
     }
 }

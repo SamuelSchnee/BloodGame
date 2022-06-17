@@ -27,7 +27,7 @@ public class DashAbility : Ability
         else
         {
             readyToUse = false;
-            cooldown -= .5f;
+            cooldown -= cooldownSpeed;
         }
 
         if(Input.GetKeyDown(KeyCode.Tab) && readyToUse == true)
