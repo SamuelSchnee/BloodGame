@@ -5,20 +5,24 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public GameObject target;
+    public float damage;
 
     public Vector2 targetLocation;
     public Vector2 bulletLocation;
     public Vector2 targetDirection;
+    public float distFromTarget;
 
     private bool targetFound;
 
     private Rigidbody2D bulletRb;
 
-    public float bulletSpeed = 10;
+    public float bulletSpeed = .1f;
+    public Health enemyhealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        distFromTarget = 3;
         bulletRb = GetComponent<Rigidbody2D>();
     }
 
@@ -29,9 +33,12 @@ public class BulletController : MonoBehaviour
 
         if (target != null)
         {
+            distFromTarget = (Mathf.Abs(Mathf.Abs(bulletLocation.x) - Mathf.Abs(targetLocation.x)) + Mathf.Abs(Mathf.Abs(bulletLocation.y) - Mathf.Abs(targetLocation.y)));
             Debug.Log("target transfered");
             trackingTarget();
         }
+
+
     }
 
     private void trackingTarget()
@@ -48,8 +55,15 @@ public class BulletController : MonoBehaviour
         bulletRb.AddForce(targetDirection, ForceMode2D.Impulse);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.tag == "enemy" && distFromTarget < 1f)
+        {
+            Debug.Log("hitEnemy");
+            enemyhealth = collision.gameObject.GetComponent<Health>();
+            enemyhealth.currentHealth = enemyhealth.currentHealth - (damage - enemyhealth.armor);
+            Destroy(this.gameObject);
+            Debug.Log("destroyed");
+        }
     }
 }

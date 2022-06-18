@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 229905276}
   m_Layer: 0
   m_Name: EnemyBody
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 329795468}
   - component: {fileID: 329795466}
   - component: {fileID: 329795465}
+  - component: {fileID: 329795470}
   - component: {fileID: 329795469}
   - component: {fileID: 329795467}
   m_Layer: 0
@@ -420,7 +421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &329795465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +523,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2313852, y: 0.7986764}
   m_EdgeRadius: 0
+--- !u!114 &329795470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329795464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52460e059abbce84a87e6c4ed5eec8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 100
+  armor: 5
+  invulnerable: 0
 --- !u!1 &381288365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,15 +1277,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 926819486}
-  - component: {fileID: 926819485}
   - component: {fileID: 1891408692}
+  - component: {fileID: 926819487}
   - component: {fileID: 1891408694}
+  - component: {fileID: 926819485}
   - component: {fileID: 1891408693}
   - component: {fileID: 1891408695}
   - component: {fileID: 926819488}
   - component: {fileID: 926819489}
   - component: {fileID: 926819490}
-  - component: {fileID: 926819487}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -1343,7 +1360,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 168817250231034951, guid: 9d34aa33556dfd448a2b184838af4544, type: 3}
   mousePos: {x: 0, y: 0}
   spawnPoint: {fileID: 1566794849}
-  bulletSpeed: 1.25
+  bulletSpeed: 3
 --- !u!114 &926819489
 MonoBehaviour:
   m_ObjectHideFlags: 0
