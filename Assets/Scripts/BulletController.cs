@@ -33,7 +33,7 @@ public class BulletController : MonoBehaviour
 
         if (target != null)
         {
-            distFromTarget = (Mathf.Abs(Mathf.Abs(bulletLocation.x) - Mathf.Abs(targetLocation.x)) + Mathf.Abs(Mathf.Abs(bulletLocation.y) - Mathf.Abs(targetLocation.y)));
+            distFromTarget = Mathf.Sqrt(Mathf.Pow(bulletLocation.x - targetLocation.x, 2) + Mathf.Pow(bulletLocation.y - targetLocation.y, 2));
             Debug.Log("target transfered");
             trackingTarget();
         }
@@ -61,7 +61,7 @@ public class BulletController : MonoBehaviour
         {
             Debug.Log("hitEnemy");
             enemyhealth = collision.gameObject.GetComponent<Health>();
-            enemyhealth.currentHealth = enemyhealth.currentHealth - (damage - enemyhealth.armor);
+            enemyhealth.TakeDamage(damage);
             Destroy(this.gameObject);
             Debug.Log("destroyed");
         }

@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 329795466}
   - component: {fileID: 329795465}
   - component: {fileID: 329795470}
+  - component: {fileID: 329795471}
   - component: {fileID: 329795469}
   - component: {fileID: 329795467}
   m_Layer: 0
@@ -539,6 +540,38 @@ MonoBehaviour:
   maxHealth: 100
   armor: 5
   invulnerable: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 329795471}
+        m_TargetAssemblyTypeName: GiveBlood, Assembly-CSharp
+        m_MethodName: GiveBloodToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &329795471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329795464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodType: slam
+  bloodAmount: 100
 --- !u!1 &381288365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1314,7 @@ GameObject:
   - component: {fileID: 926819487}
   - component: {fileID: 1891408694}
   - component: {fileID: 926819485}
+  - component: {fileID: 926819491}
   - component: {fileID: 1891408693}
   - component: {fileID: 1891408695}
   - component: {fileID: 926819488}
@@ -1407,6 +1441,26 @@ MonoBehaviour:
   groundDetector: {fileID: 814748446}
   grounded: 0
   slamSpeed: 50
+--- !u!114 &926819491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926819484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b7e142c705c68458599849f59ea505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slam: 0
+  dash: 0
+  DJump: 0
+  shield: 0
+  slamUS: 0
+  dashUS: 0
+  DJumpUS: 0
+  shieldUS: 0
 --- !u!1 &1000685978
 GameObject:
   m_ObjectHideFlags: 0

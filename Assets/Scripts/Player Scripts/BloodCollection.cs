@@ -9,27 +9,41 @@ public class BloodCollection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(slam >= 100)
-        {
-            slamUS = 1;
-        } 
-       if(dash >= 100)
+        
+        if (dash >= 100)
         {
             dashUS = 1;
         }
-       if(DJump >= 100)
+        if (DJump >= 100)
         {
             DJumpUS = 1;
         }
-       if(shield >= 100)
+        if (shield >= 100)
         {
             shieldUS = 1;
+        }
+    }
+
+    public void increaseBlood(string type, float amount)
+    {
+        if (type == "slam")
+        {
+            Debug.Log(amount);
+            slam += amount;
+            if (slam >= 100)
+            {
+                slamUS = 1;
+            }
+        }
+        else if (type == "dash")
+        {
+            dash += amount;
         }
     }
 }

@@ -32,21 +32,8 @@ public class DashAbility : Ability
 
         if(Input.GetKeyDown(KeyCode.Tab) && readyToUse == true)
         {
-            //dashing = true;
-            /* playerCnt.canMove = false;
-             transform.position = new Vector2(transform.position.x + dashDistance, transform.position.y);
-             playerCnt.canMove = true;
-             cooldown = cooldownLength;
-             Debug.Log("dashing");*/
             StartCoroutine(Dash());
         }
-
-        /*if(dashing == true)
-        {
-            playerCnt.canMove = false;
-            readyToUse = false;
-            Invoke("Dash", 2);
-        }*/
     }
 
     IEnumerator Dash()
@@ -62,12 +49,4 @@ public class DashAbility : Ability
         playerBody.gravityScale = 3;
         cooldown = cooldownLength;
     }
-    /*void Dash()
-    {
-        
-        playerCnt.canMove = true;
-        dashing = false;
-        cooldown = cooldownLength;
-        transform.position = new Vector2(transform.position.x + dashDistance, transform.position.y);
-    }*/
 }

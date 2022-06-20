@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Health : MonoBehaviour
     public float armor;
     public float invulnerable;
 
+    public UnityEvent OnDeath;
+    public UnityEvent OnDamaged;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +21,17 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentHealth<= 0)
+
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= (damage - armor);
+        OnDamaged.Invoke();
+
+        if (currentHealth <= 0)
         {
+            OnDeath.Invoke();
             Destroy(this.gameObject);
         }
     }
