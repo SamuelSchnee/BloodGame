@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 229905274}
   - component: {fileID: 229905273}
   - component: {fileID: 229905276}
+  - component: {fileID: 229905278}
+  - component: {fileID: 229905277}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: enemy
@@ -243,6 +245,54 @@ MonoBehaviour:
   attacking: 0
   doneAttacking: 0
   enemyReturn: {fileID: 1472559412}
+--- !u!114 &229905277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229905271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodType: slam
+  bloodAmount: 100
+--- !u!114 &229905278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229905271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52460e059abbce84a87e6c4ed5eec8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 100
+  armor: 0
+  invulnerable: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 229905277}
+        m_TargetAssemblyTypeName: GiveBlood, Assembly-CSharp
+        m_MethodName: GiveBloodToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &260644725
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodType: slam
+  bloodType: dash
   bloodAmount: 100
 --- !u!1 &381288365
 GameObject:
@@ -1228,6 +1278,8 @@ GameObject:
   m_Component:
   - component: {fileID: 889557786}
   - component: {fileID: 889557787}
+  - component: {fileID: 889557788}
+  - component: {fileID: 889557789}
   m_Layer: 0
   m_Name: Punch1
   m_TagString: Untagged
@@ -1301,6 +1353,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &889557788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889557785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4ade01a07e8d34b8104089df4e19cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  enemyHealth: {fileID: 0}
+--- !u!61 &889557789
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889557785}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.116389215, y: -0.02909708}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3966694, y: 2.4548635}
+  m_EdgeRadius: 0
 --- !u!1 &926819484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2395,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1713977951}
   - component: {fileID: 1713977952}
+  - component: {fileID: 1713977953}
+  - component: {fileID: 1713977954}
   m_Layer: 0
   m_Name: Punch2
   m_TagString: Untagged
@@ -2376,6 +2470,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1713977953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713977950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4ade01a07e8d34b8104089df4e19cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  enemyHealth: {fileID: 0}
+--- !u!61 &1713977954
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713977950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014548719, y: 0.014548659}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.7749333, y: 2.6003501}
+  m_EdgeRadius: 0
 --- !u!1 &1747127360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2810,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1987070324}
   - component: {fileID: 1987070325}
+  - component: {fileID: 1987070326}
+  - component: {fileID: 1987070327}
   m_Layer: 0
   m_Name: Punch3
   m_TagString: Untagged
@@ -2749,6 +2885,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1987070326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987070323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4ade01a07e8d34b8104089df4e19cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  enemyHealth: {fileID: 0}
+--- !u!61 &1987070327
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987070323}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.112591386, y: 0.009382606}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5387447, y: 1.9194939}
+  m_EdgeRadius: 0
 --- !u!1 &2069051635
 GameObject:
   m_ObjectHideFlags: 0
