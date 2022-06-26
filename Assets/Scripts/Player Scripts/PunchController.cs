@@ -10,6 +10,11 @@ public class PunchController : MonoBehaviour
     public GameObject punch1;
     public GameObject punch2;
     public GameObject punch3;
+
+    public Transform punchHitbox;
+    public LayerMask enemy;
+    public float hitboxSize = .5f;
+
     // Start is called before the first frame update
     void Start()
     {

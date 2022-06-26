@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 329795471}
   - component: {fileID: 329795469}
   - component: {fileID: 329795467}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -948,6 +948,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &658235239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658235240}
+  m_Layer: 0
+  m_Name: PunchHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &658235240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658235239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.82, y: 0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1151520197}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723231393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &889557786
 Transform:
   m_ObjectHideFlags: 0
@@ -1410,6 +1440,7 @@ GameObject:
   - component: {fileID: 1891408693}
   - component: {fileID: 1891408695}
   - component: {fileID: 926819488}
+  - component: {fileID: 926819492}
   - component: {fileID: 926819489}
   - component: {fileID: 926819490}
   m_Layer: 0
@@ -1553,6 +1584,26 @@ MonoBehaviour:
   dashUS: 0
   DJumpUS: 0
   shieldUS: 0
+--- !u!114 &926819492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926819484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7c2c5af42b7d442a1dacef332f139e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchHitbox: {fileID: 658235240}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  hitboxSize: 0.5
+  enemyHealth: {fileID: 0}
+  damage: 10
+  attackRate: 2
 --- !u!1 &1000685978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,6 +2010,7 @@ Transform:
   - {fileID: 1713977951}
   - {fileID: 1987070324}
   - {fileID: 1566794850}
+  - {fileID: 658235240}
   m_Father: {fileID: 926819486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2403,7 +2455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1713977951
 Transform:
   m_ObjectHideFlags: 0
@@ -2705,7 +2757,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926819484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca1c63cb3abfca43b67eca014e4230d, type: 3}
   m_Name: 
@@ -2715,6 +2767,11 @@ MonoBehaviour:
   punch1: {fileID: 889557785}
   punch2: {fileID: 1713977950}
   punch3: {fileID: 1987070323}
+  punchHitbox: {fileID: 0}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 0
+  hitboxSize: 0.5
 --- !u!1 &1898102993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,7 +2875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1987070324
 Transform:
   m_ObjectHideFlags: 0
