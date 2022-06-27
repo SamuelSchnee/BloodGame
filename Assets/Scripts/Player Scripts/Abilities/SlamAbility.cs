@@ -9,6 +9,12 @@ public class SlamAbility : Ability
     public Collider2D groundDetector;
     public bool grounded;
     public float slamSpeed;
+    public bool slamming;
+
+    public Transform slamHitbox;
+    public float hitboxSize;
+    public LayerMask enemyLayers;
+    private Health enemyHealth;
 
     void Start()
     {
@@ -37,10 +43,39 @@ public class SlamAbility : Ability
 
         if(grounded == false && Input.GetKeyDown(KeyCode.Alpha1) && readyToUse == true)
         {
-            playerBody.velocity = Vector2.zero;
-            playerBody.AddForce(Vector2.down * slamSpeed, ForceMode2D.Impulse);
-            readyToUse = false;
-            cooldown = cooldownLength;
+            Slam();
         }
+
+        if(slamming == true && grounded == false)
+        {
+            HitboxActive();
+        }
+    }
+
+    void Slam()
+    {
+        playerBody.velocity = Vector2.zero;
+        playerBody.AddForce(Vector2.down * slamSpeed, ForceMode2D.Impulse);
+        slamming = true;
+        readyToUse = false;
+        cooldown = cooldownLength;
+    }
+
+    void HitboxActive()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(slamHitbox.position, hitboxSize, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("slammed " + enemy);
+            enemyHealth = enemy.GetComponent<Health>();
+            enemyHealth.TakeDamage(damage);
+        }
+        slamming = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(slamHitbox.position, hitboxSize);
     }
 }
