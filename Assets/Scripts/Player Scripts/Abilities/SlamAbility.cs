@@ -5,11 +5,13 @@ using UnityEngine;
 public class SlamAbility : Ability
 {
     Rigidbody2D playerBody;
+    public PlayerController playerCnt;
     public LayerMask groundLayer;
     public Collider2D groundDetector;
     public bool grounded;
     public float slamSpeed;
     public bool slamming;
+    public float stunTime = .25f;
 
     public Transform slamHitbox;
     public float hitboxSize;
@@ -19,6 +21,7 @@ public class SlamAbility : Ability
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
+        playerCnt = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -46,7 +49,7 @@ public class SlamAbility : Ability
             Slam();
         }
 
-        if(slamming == true && grounded == false)
+        if(slamming == true && grounded == true)
         {
             HitboxActive();
         }
@@ -64,14 +67,22 @@ public class SlamAbility : Ability
     void HitboxActive()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(slamHitbox.position, hitboxSize, enemyLayers);
-
-        foreach (Collider2D enemy in hitEnemies)
+        
+        if (slamming == true)
         {
-            Debug.Log("slammed " + enemy);
-            enemyHealth = enemy.GetComponent<Health>();
-            enemyHealth.TakeDamage(damage);
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("slammed " + enemy);
+                enemyHealth = enemy.GetComponent<Health>();
+                enemyHealth.TakeDamage(damage);
+                slamming = false;
+            }
         }
-        slamming = false;
+
+        if (hitEnemies.Length == 0)
+        {
+            slamming = false;
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -14,7 +14,7 @@ public class EnemyPathing : MonoBehaviour
     public Rigidbody2D enemyRb;
     public Transform groundCheckPos;
     public LayerMask groundLayer;
-    public Collider2D bodyCollider;
+    public Transform wallCheckPos;
 
     public Transform player;
 
@@ -60,7 +60,7 @@ public class EnemyPathing : MonoBehaviour
 
     void Patrol()
     {
-        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
+        if (mustTurn || Physics2D.OverlapCircle(wallCheckPos.position, .1f, groundLayer))
         {
             Flip();
         }
