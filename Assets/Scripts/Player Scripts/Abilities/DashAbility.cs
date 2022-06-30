@@ -42,9 +42,9 @@ public class DashAbility : Ability
         playerCnt.canMove = false;
         playerBody.gravityScale = 0;
         playerBody.velocity = Vector2.zero;
-        yield return new WaitForSecondsRealtime(.25f);
+        yield return new WaitForSecondsRealtime(.1f);
         transform.position = new Vector2(transform.position.x + dashDistance, transform.position.y);
-        yield return new WaitForSecondsRealtime(.2f);
+        yield return new WaitForSecondsRealtime(.1f);
         playerCnt.canMove = true;
         playerBody.gravityScale = 3;
         cooldown = cooldownLength;

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             jump = true;
         }*/
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canMove == true)
         {
             Debug.Log("jump");
             jump = true;

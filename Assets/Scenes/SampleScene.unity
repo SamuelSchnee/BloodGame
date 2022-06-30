@@ -523,7 +523,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  bodyCollider: {fileID: 329795469}
   wallCheckPos: {fileID: 205965962}
   player: {fileID: 926819486}
 --- !u!50 &329795466
@@ -1590,6 +1589,7 @@ MonoBehaviour:
   damage: 50
   readyToUse: 0
   cooldownSpeed: 0.5
+  playerCnt: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1597,6 +1597,7 @@ MonoBehaviour:
   grounded: 0
   slamSpeed: 50
   slamming: 0
+  stunTime: 0.5
   slamHitbox: {fileID: 1328505123}
   hitboxSize: 1.02
   enemyLayers:

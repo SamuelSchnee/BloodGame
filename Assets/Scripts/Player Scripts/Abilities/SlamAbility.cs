@@ -62,6 +62,13 @@ public class SlamAbility : Ability
         slamming = true;
         readyToUse = false;
         cooldown = cooldownLength;
+        playerCnt.canMove = false;
+        Invoke("Stun", stunTime);
+    }
+
+    void Stun()
+    {
+        playerCnt.canMove = true;
     }
 
     void HitboxActive()
