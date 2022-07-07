@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoubleJumpEnemy : MonoBehaviour
 {
     public Rigidbody2D enemyBody;
-    public GameObject target;
+    public GameObject target, destination;
     public Collider2D enemyCollider;
     public GameObject target0, target1, target2, target3, target4;
     public float speed, pause;
@@ -26,6 +26,10 @@ public class DoubleJumpEnemy : MonoBehaviour
         {
             Invoke("InitialDash", pause);
         }
+        if(state == "findingEnemy")
+        {
+            Invoke("FindingEnemy", 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -44,7 +48,7 @@ public class DoubleJumpEnemy : MonoBehaviour
 
     void InitialDash()
     {
-        GameObject destination = target0;
+        destination = target0;
         enemyBody.gravityScale = 0;
         Vector3 direction = destination.transform.position - transform.position;
         direction *= Time.deltaTime;
@@ -56,7 +60,7 @@ public class DoubleJumpEnemy : MonoBehaviour
         }
         else
         {
-            state = "secondaryDash";
+            state = "findingEnemy";
         }
     }
 
@@ -64,22 +68,22 @@ public class DoubleJumpEnemy : MonoBehaviour
     {
         if(target.transform.position.y < transform.position.y && target.transform.position.x < transform.position.x)
         {
-            target = target1;
+            destination = target1;
             state = "secondaryDash";
         }
         else if(target.transform.position.y > transform.position.y && target.transform.position.x < transform.position.x)
         {
-            target = target2;
+            destination = target2;
             state = "secondaryDash";
         }
         else if(target.transform.position.y > transform.position.y && target.transform.position.x > transform.position.x)
         {
-            target = target3;
+            destination = target3;
             state = "secondaryDash";
         }
         else if(target.transform.position.y < transform.position.y && target.transform.position.x > transform.position.x)
         {
-            target = target4;
+            destination = target4;
             state = "secondaryDash";
         }
 
@@ -87,6 +91,13 @@ public class DoubleJumpEnemy : MonoBehaviour
 
     void SecondaryDash(GameObject destination)
     {
+        Vector3 direction = destination.transform.position - transform.position;
+        direction *= Time.deltaTime;
+        direction *= speed;
 
+        if (transform.position != destination.transform.position)
+        {
+            transform.position += direction;
+        }
     }
 }
