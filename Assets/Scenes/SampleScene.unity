@@ -470,8 +470,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264525722}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.794, y: 1.303, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.1939998, y: 2.033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190825370}
@@ -838,8 +838,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388759371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: 3.44, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.32, y: 4.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190825370}
@@ -1291,8 +1291,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762791171}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: -0.76, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.019999862, y: -0.029999971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190825370}
@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 926819492}
   - component: {fileID: 926819489}
   - component: {fileID: 926819490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1820,8 +1820,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006458337}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 3.44, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.019999862, y: 4.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190825370}
@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 1151520196}
   - component: {fileID: 1151520195}
   - component: {fileID: 1151520193}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2250,9 +2250,9 @@ GameObject:
   - component: {fileID: 1167079331}
   - component: {fileID: 1167079330}
   - component: {fileID: 1167079329}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy body
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2285,15 +2285,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 0}
   target: {fileID: 0}
+  destination: {fileID: 0}
   enemyCollider: {fileID: 0}
   target0: {fileID: 264525722}
   target1: {fileID: 1481186488}
   target2: {fileID: 388759371}
   target3: {fileID: 1006458337}
   target4: {fileID: 762791171}
-  speed: 10
+  speed: 4.12
   pause: 1
   state: 
+  OnDoneAttacking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1190825371}
+        m_TargetAssemblyTypeName: TargetController, Assembly-CSharp
+        m_MethodName: MoveTargets
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &1167079330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2418,6 +2434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1190825370}
+  - component: {fileID: 1190825371}
   m_Layer: 0
   m_Name: TargetHolder
   m_TagString: Untagged
@@ -2433,7 +2450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190825369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.4, y: -0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 264525723}
@@ -2444,6 +2461,20 @@ Transform:
   m_Father: {fileID: 269330140}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190825371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190825369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f010a70706203ad4a836922b805a9793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 926819484}
+  djEnemy: {fileID: 1167079327}
 --- !u!1 &1328505122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,8 +2891,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481186488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: -0.84, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.32, y: -0.109999895, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190825370}

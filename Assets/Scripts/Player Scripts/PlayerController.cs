@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         speed = 5;
         gameSpeed = 1;
-        jumpStrength = 20;
+        jumpStrength = 10;
         playerRb = gameObject.GetComponent<Rigidbody2D>();
     }
 
