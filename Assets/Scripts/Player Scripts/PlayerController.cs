@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         if(jump == true)
         {
+            playerRb.velocity = Vector2.zero;
             playerRb.AddForce(Vector2.up * jumpStrength * gameSpeed, ForceMode2D.Impulse);
             jump = false;
             Debug.Log("fixed");

@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LoadZoneController : MonoBehaviour
 {
-    public string desiredLevel;
+    public GameObject desiredLocation;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "player")
         {
-            SceneManager.LoadScene(desiredLevel);
+            if (desiredLocation != null)
+            {
+                other.transform.position = desiredLocation.transform.position;
+            }
         }
     }
 }
