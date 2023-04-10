@@ -20,23 +20,25 @@ public class SlamEnemyController : MonoBehaviour
 
     public Transform enemyReturn;
 
+    bool test;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyrb = GetComponent<Rigidbody2D>();
         groundBody = groundDetector.GetComponent<Collider2D>();
         hitbox1.SetActive(false);
+        test = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (targetFound == true)
+        if (targetFound == true && doneAttacking == false)
         {
             pathing.mustPatorl = false;
             enemyrb.velocity = Vector2.zero;
             StartCoroutine(Slam());
-            attacking = true;
         }
         if (doneAttacking == true)
         {
@@ -67,6 +69,7 @@ public class SlamEnemyController : MonoBehaviour
         if (groundBody.IsTouchingLayers(groundLayer))
         {
             enemyrb.velocity = Vector2.zero;
+            attacking = true;
             StartCoroutine(Attack());
         }
     }

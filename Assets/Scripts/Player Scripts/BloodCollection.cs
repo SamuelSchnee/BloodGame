@@ -44,6 +44,14 @@ public class BloodCollection : MonoBehaviour
         else if (type == "dash")
         {
             dash += amount;
+            if(dash >= 100)
+            {
+                dashUS = 1;
+            }
+        }
+        else if (type == "djump")
+        {
+
         }
     }
 }

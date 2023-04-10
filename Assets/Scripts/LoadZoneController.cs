@@ -9,10 +9,11 @@ public class LoadZoneController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "player")
+        if(other.gameObject.tag == "Player")
         {
             if (desiredLocation != null)
             {
+                Debug.Log("moving player");
                 other.transform.position = desiredLocation.transform.position;
             }
         }
