@@ -51,7 +51,11 @@ public class BloodCollection : MonoBehaviour
         }
         else if (type == "djump")
         {
-
+            DJump += amount;
+            if(DJump >= 100)
+            {
+                DJumpUS = 1;
+            }
         }
     }
 }

@@ -9,13 +9,19 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float gameSpeed;
     public float jumpStrength;
+    public float jumpCount;
+
+    public Transform groundCheckPos;
 
     public bool jump = false;
     public bool canMove = true;
-
+    public bool grounded = true;
+    
     public Rigidbody2D playerRb;
 
-    public CharacterController2D controller;
+    public BloodCollection bloodCollect;
+
+    public LayerMask groundLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,7 @@ public class PlayerController : MonoBehaviour
         gameSpeed = 1;
         jumpStrength = 10;
         playerRb = gameObject.GetComponent<Rigidbody2D>();
+        bloodCollect = gameObject.GetComponent<BloodCollection>();
     }
 
     // Update is called once per frame
@@ -35,17 +42,16 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
         }
 
-        /*if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space) && canMove == true /*&& grounded == true jumpCount > 0*/)
         {
-            jump = true;
-        }*/
-
-        if (Input.GetKeyDown(KeyCode.Space) && canMove == true)
-        {
-            Debug.Log("jump");
-            jump = true;
-            //transform.Translate(new Vector3(0, jumpStrength, 0) * Time.deltaTime);
-            //playerRb.AddForce(Vector2.up * jumpStrength * gameSpeed);
+            if(bloodCollect.DJumpUS == 0 && grounded == true)
+            {
+                jump = true;
+            }
+            else if(bloodCollect.DJumpUS == 1 && jumpCount > 0)
+            {
+                jump = true;
+            }
         }
     }
     private void FixedUpdate()
@@ -54,11 +60,22 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.velocity = Vector2.zero;
             playerRb.AddForce(Vector2.up * jumpStrength * gameSpeed, ForceMode2D.Impulse);
+            jumpCount -= 1;
             jump = false;
             Debug.Log("fixed");
         }
+        if(!Physics2D.OverlapCircle(groundCheckPos.position, .01f, groundLayer))
+        {
+            grounded = false;
+        }
+        else
+        {
+            grounded = true;
 
-        //controller.Move(horizontalInput * Time.fixedDeltaTime, false, jump);
-        //jump = false;
+            if (bloodCollect.DJumpUS == 1)
+            {
+                jumpCount = 1;
+            }
+        }
     }
 }

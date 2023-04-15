@@ -529,7 +529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &300839276
 Transform:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &329795465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329795464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.73, y: -1.62, z: 0}
+  m_LocalPosition: {x: 10.73, y: -4.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodType: dash
+  bloodType: djump
   bloodAmount: 100
 --- !u!1 &381288365
 GameObject:
@@ -2271,6 +2271,11 @@ Transform:
   m_Father: {fileID: 1190825370}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1602450868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8964303925617810872, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+  m_PrefabInstance: {fileID: 8964303923875009017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1760485719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2454,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8964303924761458020, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: groundCheckPos
+      value: 
+      objectReference: {fileID: 1602450868}
+    - target: {fileID: 8964303924761458020, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8964303924761458021, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -2496,6 +2509,10 @@ PrefabInstance:
     - target: {fileID: 8964303924761458023, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964303925617810872, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
