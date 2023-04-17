@@ -16,6 +16,7 @@ public class EnemyPathing : MonoBehaviour
     public LayerMask groundLayer;
     public Transform wallCheckPos;
     public Transform player;
+    public float enemyDetectionRange = 3;
 
     public EnemyShoot enShoot;
 
@@ -35,7 +36,7 @@ public class EnemyPathing : MonoBehaviour
 
         distToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if(distToPlayer <= attackRange)
+        if (distToPlayer <= attackRange)
         {
             if (player.position.x > transform.position.x && transform.localScale.x < 0 
                 || player.position.x < transform.position.x && transform.localScale.x > 0)

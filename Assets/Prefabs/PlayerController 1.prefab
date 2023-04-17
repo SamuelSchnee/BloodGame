@@ -165,7 +165,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8964303924730282723}
   - component: {fileID: 8964303924730282722}
-  - component: {fileID: 8964303924730282725}
   - component: {fileID: 8964303924730282724}
   m_Layer: 0
   m_Name: Punch1
@@ -241,20 +240,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8964303924730282725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8964303924730282720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4ade01a07e8d34b8104089df4e19cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  enemyHealth: {fileID: 0}
 --- !u!61 &8964303924730282724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -301,6 +286,8 @@ GameObject:
   - component: {fileID: 8964303924761458013}
   - component: {fileID: 8964303924761458008}
   - component: {fileID: 8964303924761458011}
+  - component: {fileID: 926819498}
+  - component: {fileID: 926819499}
   m_Layer: 3
   m_Name: PlayerController 1
   m_TagString: Player
@@ -404,10 +391,16 @@ MonoBehaviour:
   speed: 0
   gameSpeed: 0
   jumpStrength: 0
+  jumpCount: 0
+  groundCheckPos: {fileID: 8964303925617810872}
   jump: 0
   canMove: 1
+  grounded: 1
   playerRb: {fileID: 0}
-  controller: {fileID: 8964303925759527628}
+  bloodCollect: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &8964303924761458010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +456,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8964303924761458021}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca1c63cb3abfca43b67eca014e4230d, type: 3}
   m_Name: 
@@ -512,7 +505,7 @@ MonoBehaviour:
     m_Bits: 128
   hitboxSize: 0.5
   enemyHealth: {fileID: 0}
-  damage: 10
+  damage: 50
   attackRate: 2
 --- !u!114 &8964303924761458008
 MonoBehaviour:
@@ -568,6 +561,52 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &926819498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964303924761458021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b100d5c1ca1efe44981e020e3b6af12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &926819499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964303924761458021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52460e059abbce84a87e6c4ed5eec8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 1000
+  armor: 0
+  invulnerable: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 926819498}
+        m_TargetAssemblyTypeName: PlayerDeath, Assembly-CSharp
+        m_MethodName: playerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8964303924933429620
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +1011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8964303925617810873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.029999971, y: -0.7399999, z: 0}
+  m_LocalPosition: {x: 0.029999971, y: -0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         speed = 5;
         gameSpeed = 1;
-        jumpStrength = 10;
+        jumpStrength = 29;
         playerRb = gameObject.GetComponent<Rigidbody2D>();
         bloodCollect = gameObject.GetComponent<BloodCollection>();
     }
