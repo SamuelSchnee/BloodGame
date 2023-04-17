@@ -15,13 +15,15 @@ public class EnemyPathing : MonoBehaviour
     public Transform groundCheckPos;
     public LayerMask groundLayer;
     public Transform wallCheckPos;
-
     public Transform player;
+
+    public EnemyShoot enShoot;
 
     void Start()
     {
         mustPatrol = true;
         enemyRb = GetComponent<Rigidbody2D>();
+        enShoot = gameObject.GetComponent<EnemyShoot>();
     }
 
     void Update()
@@ -47,6 +49,7 @@ public class EnemyPathing : MonoBehaviour
         else
         {
             mustPatrol = true;
+            enShoot.shooting = false;
         }
     }
 
@@ -77,6 +80,6 @@ public class EnemyPathing : MonoBehaviour
 
     void Shoot()
     {
-
+        enShoot.shooting = true;
     }
 }
