@@ -15,7 +15,8 @@ public class EnemyPathing : MonoBehaviour
     public Transform groundCheckPos;
     public LayerMask groundLayer;
     public Transform wallCheckPos;
-    public Transform player;
+    public Transform playerPos;
+    public GameObject player;
     public float enemyDetectionRange = 3;
 
     public EnemyShoot enShoot;
@@ -25,6 +26,8 @@ public class EnemyPathing : MonoBehaviour
         mustPatrol = true;
         enemyRb = GetComponent<Rigidbody2D>();
         enShoot = gameObject.GetComponent<EnemyShoot>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerPos = player.GetComponent<Transform>();
     }
 
     void Update()
@@ -34,12 +37,12 @@ public class EnemyPathing : MonoBehaviour
             Patrol();
         }
 
-        distToPlayer = Vector2.Distance(transform.position, player.position);
+        distToPlayer = Vector2.Distance(transform.position, playerPos.position);
 
         if (distToPlayer <= attackRange)
         {
-            if (player.position.x > transform.position.x && transform.localScale.x < 0 
-                || player.position.x < transform.position.x && transform.localScale.x > 0)
+            if (playerPos.position.x > transform.position.x && transform.localScale.x < 0 
+                || playerPos.position.x < transform.position.x && transform.localScale.x > 0)
             {
                 Flip();
             }

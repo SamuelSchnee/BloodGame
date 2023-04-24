@@ -401,6 +401,7 @@ MonoBehaviour:
     m_Bits: 64
   wallCheckPos: {fileID: 2272730651447655349}
   player: {fileID: 0}
+  enemyDetectionRange: 3
   enShoot: {fileID: 0}
 --- !u!114 &2272730651524560561
 MonoBehaviour:

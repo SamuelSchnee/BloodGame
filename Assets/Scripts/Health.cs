@@ -12,10 +12,17 @@ public class Health : MonoBehaviour
 
     public UnityEvent OnDeath;
     public UnityEvent OnDamaged;
+
+    public HealthBar healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        if(healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
     // Update is called once per frame
@@ -27,6 +34,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= (damage - armor);
+        if(healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
         OnDamaged.Invoke();
 
         if (currentHealth <= 0)

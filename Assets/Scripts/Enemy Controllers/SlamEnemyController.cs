@@ -20,7 +20,12 @@ public class SlamEnemyController : MonoBehaviour
 
     public Transform enemyReturn;
 
-    bool test;
+    public float hitboxSize;
+    public LayerMask playerLayer;
+    public Health playerHealth;
+    public float damage;
+    public bool plzAttack = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +33,12 @@ public class SlamEnemyController : MonoBehaviour
         enemyrb = GetComponent<Rigidbody2D>();
         groundBody = groundDetector.GetComponent<Collider2D>();
         hitbox1.SetActive(false);
-        test = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (targetFound == true && doneAttacking == false)
         {
             pathing.mustPatorl = false;
@@ -43,6 +48,25 @@ public class SlamEnemyController : MonoBehaviour
         if (doneAttacking == true)
         {
             AfterAttacking();
+        }
+        if(plzAttack == true)
+        {
+            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, hitboxSize, playerLayer);
+
+            if (hitPlayer != null && attacking == true && doneAttacking == false)
+            {
+                foreach (Collider2D player in hitPlayer)
+                {
+                    Debug.Log("player Hit");
+                    playerHealth = player.GetComponent<Health>();
+                    playerHealth.TakeDamage(damage);
+                    doneAttacking = true;
+                    targetFound = false;
+                    attacking = false;
+                    plzAttack = false;
+                    Debug.Log("finsihed");
+                }
+            }
         }
     }
 
@@ -70,9 +94,55 @@ public class SlamEnemyController : MonoBehaviour
         {
             enemyrb.velocity = Vector2.zero;
             attacking = true;
-            StartCoroutine(Attack());
+            plzAttack = true;
+            //StartCoroutine(Attack());
+            /*Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, hitboxSize, playerLayer);
+
+            if (hitPlayer != null && attacking == true && doneAttacking == false)
+            {
+                foreach (Collider2D player in hitPlayer)
+                {
+                    Debug.Log("player Hit" + timeTest);
+                    playerHealth = player.GetComponent<Health>();
+                    playerHealth.TakeDamage(damage);
+                    attacking = false;
+                }
+                doneAttacking = true;
+                targetFound = false;
+            }
+            if(attacking == true && doneAttacking == false)
+            {
+                Debug.Log("attack called");
+                Attacking();
+                
+            }*/
         }
     }
+
+   /* public void Attacking()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, hitboxSize, playerLayer);
+
+        if (hitPlayer != null && attacking == true && doneAttacking == false)
+        {
+            foreach (Collider2D player in hitPlayer)
+            {
+                Debug.Log("player Hit");
+                playerHealth = player.GetComponent<Health>();
+                playerHealth.TakeDamage(damage);
+                doneAttacking = true;
+                targetFound = false;
+                attacking = false;
+                Debug.Log("finsihed");
+            }
+        }
+        /*else if(hitPlayer == null)
+        {
+            doneAttacking = true;
+            targetFound = false;
+            attacking = false;
+        }
+    }*/
 
     IEnumerator Attack()
     {
@@ -85,5 +155,10 @@ public class SlamEnemyController : MonoBehaviour
             targetFound = false;
             attacking = false;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, hitboxSize);
     }
 }
