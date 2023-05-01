@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetHealth: {fileID: 0}
-  damage: 30
+  damage: 10
+  bulletLife: 5
 --- !u!58 &4006687660377227017
 CircleCollider2D:
   m_ObjectHideFlags: 0
