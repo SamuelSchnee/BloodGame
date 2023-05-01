@@ -16,7 +16,7 @@ public class BulletController : MonoBehaviour
 
     private Rigidbody2D bulletRb;
 
-    public float bulletSpeed = .1f;
+    public float bulletSpeed = 15f;
     public Health enemyhealth;
 
     // Start is called before the first frame update
@@ -57,7 +57,19 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "enemy" && distFromTarget < 1f)
+        if (collision.gameObject.tag == "enemy" && distFromTarget < 2f)
+        {
+            Debug.Log("hitEnemy");
+            enemyhealth = collision.gameObject.GetComponent<Health>();
+            enemyhealth.TakeDamage(damage);
+            Destroy(this.gameObject);
+            Debug.Log("destroyed");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy" && distFromTarget < 2f)
         {
             Debug.Log("hitEnemy");
             enemyhealth = collision.gameObject.GetComponent<Health>();

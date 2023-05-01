@@ -36,6 +36,7 @@ public class GunController : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint (new Vector3(mouseX, mouseY, 0));
         Quaternion rot = bulletPrefab.transform.rotation;
 
+        Debug.Log("spawn bullet");
         GameObject bulletInst = Instantiate(bulletPrefab, spawnPos, rot);
 
         Rigidbody2D bulletBody = bulletInst.GetComponent<Rigidbody2D>();
@@ -46,5 +47,6 @@ public class GunController : MonoBehaviour
         launchDirection *= bulletSpeed;
 
         bulletBody.AddForce(launchDirection, ForceMode2D.Impulse);
+        Debug.Log("bullet spawned");
     }
 }
