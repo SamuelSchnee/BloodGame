@@ -34,7 +34,7 @@ public class EnemyPathingCollide : MonoBehaviour
             Patrol();
         }
 
-        distToPlayer = Vector2.Distance(transform.position, playerPos.position);
+        //distToPlayer = Vector2.Distance(transform.position, playerPos.position);
 
         /*if (distToPlayer <= attackRange)
         {

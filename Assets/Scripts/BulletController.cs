@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     public GameObject target;
     public float damage;
+    public float bulletLife = 1;
 
     public Vector2 targetLocation;
     public Vector2 bulletLocation;
@@ -16,23 +17,27 @@ public class BulletController : MonoBehaviour
 
     private Rigidbody2D bulletRb;
 
-    public float bulletSpeed = 15f;
+    public float bulletSpeed = 1f;
     public Health enemyhealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         distFromTarget = 3;
         bulletRb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        Destroy(gameObject, bulletLife);
+    }
+
     void Update()
     {
         bulletLocation = gameObject.transform.position;
 
         if (target != null)
         {
+            //bulletRb.velocity = Vector2.zero;
             distFromTarget = Mathf.Sqrt(Mathf.Pow(bulletLocation.x - targetLocation.x, 2) + Mathf.Pow(bulletLocation.y - targetLocation.y, 2));
             Debug.Log("target transfered");
             trackingTarget();
@@ -48,7 +53,7 @@ public class BulletController : MonoBehaviour
         targetDirection = targetLocation - bulletLocation;
         targetDirection.Normalize();
 
-        bulletRb.velocity = Vector2.zero;
+        
 
         targetDirection *= bulletSpeed;
 

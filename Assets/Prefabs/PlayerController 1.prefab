@@ -486,7 +486,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 168817250231034951, guid: 9d34aa33556dfd448a2b184838af4544, type: 3}
   mousePos: {x: 0, y: 0}
   spawnPoint: {fileID: 8964303925403891096}
-  bulletSpeed: 3
+  bulletSpeed: 15
 --- !u!114 &8964303924761458013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 1000
+  maxHealth: 100
   armor: 0
   invulnerable: 0
   OnDeath:
@@ -607,6 +607,7 @@ MonoBehaviour:
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
+  healthBar: {fileID: 0}
 --- !u!1 &8964303924933429620
 GameObject:
   m_ObjectHideFlags: 0

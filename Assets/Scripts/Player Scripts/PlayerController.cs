@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float gameSpeed;
     public float jumpStrength;
     public float jumpCount;
+    public float maxSpeed = 5;
 
     public Transform groundCheckPos;
 
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         if (canMove == true)
         {
             horizontalInput = Input.GetAxis("Horizontal") * speed;
+            horizontalInput = Mathf.Clamp(horizontalInput, -maxSpeed, maxSpeed);
             transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
         }
 

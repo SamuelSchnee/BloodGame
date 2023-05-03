@@ -1073,7 +1073,7 @@ Canvas:
   m_GameObject: {fileID: 1344642629}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1324,6 +1324,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 563832655, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2272730651524560561, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: armor
       value: 0
@@ -1534,14 +1538,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1078626210}
-    - target: {fileID: 926819499, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964303924761458009, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
-      propertyPath: bulletSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8964303924761458021, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -1671,11 +1667,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8984549794555459513, guid: 6fb725ddc6e2f5446a94778b8009cb02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -189
+      value: -148
       objectReference: {fileID: 0}
     - target: {fileID: 8984549794555459513, guid: 6fb725ddc6e2f5446a94778b8009cb02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 144
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 8984549794555459513, guid: 6fb725ddc6e2f5446a94778b8009cb02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
