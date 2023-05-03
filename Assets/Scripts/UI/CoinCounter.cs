@@ -7,27 +7,21 @@ using UnityEngine.SceneManagement;
 
 public class CoinCounter : MonoBehaviour
 {
-    public int coinsCollected = 0;
-    public int maxCoins = 3;
+    public UIController myUI;
+    public GameObject UIController;
 
-    [SerializeField] private TextMeshProUGUI coinsText;
+    private void Start()
+    {
+        UIController = GameObject.FindGameObjectWithTag("UIController");
+        myUI = UIController.GetComponent<UIController>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Coin")
+        if(other.gameObject.tag == "Player")
         {
-            Destroy(other.gameObject);
-            coinsCollected ++;
-            coinsText.text = "Coins Collected:" + coinsCollected + "/" + maxCoins;
-            AllCoinsCollected();
-        }
-    }
-
-    void AllCoinsCollected()
-    {
-        if(coinsCollected >= maxCoins)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            myUI.CoinCollected();
+            Destroy(this.gameObject);
         }
     }
 }
