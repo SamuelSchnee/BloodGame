@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heavy : MonoBehaviour
+public class Heavy : Ability
 {
     public bool heavyOn = false;
     public PlayerController plyrCntrl;
     public BuoyancyEffector2D waterEffector;
+    public float maxCooldown = 1;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class Heavy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && cooldown <= 0)
         {
             Debug.Log("hitting R");
             if (heavyOn == false)
@@ -37,6 +38,13 @@ public class Heavy : MonoBehaviour
                     waterEffector.density = 2;
                 }
             }
+
+            cooldown = maxCooldown;
+        }
+
+        if (cooldown >= 0)
+        {
+            cooldown -= Time.deltaTime;
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewPunchController : MonoBehaviour
+public class NewPunchController : Ability
 {
     public Transform punchHitbox;
     public LayerMask enemyLayers;

@@ -15,6 +15,7 @@ public class SlamAbility : Ability
     public LayerMask groundLayers;
 
     public float hitboxSize = .5f;
+    public float maxCooldown = 1;
 
     public Health enemyHealth;
 
@@ -25,14 +26,21 @@ public class SlamAbility : Ability
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && cooldown <= 0)
         {
             Slam();
+            cooldown = maxCooldown;
+        }
+
+        if(cooldown >= 0)
+        {
+            cooldown -= Time.deltaTime;
         }
     }
 
     void Slam()
     {
+        Debug.Log("slam");
         Collider2D[] hitEnemyLeft = Physics2D.OverlapCircleAll(leftHitbox.position, hitboxSize, enemyLayers);
         foreach (Collider2D enemy in hitEnemyLeft)
         {

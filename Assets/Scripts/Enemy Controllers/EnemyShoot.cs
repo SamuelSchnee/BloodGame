@@ -11,6 +11,7 @@ public class EnemyShoot : MonoBehaviour
     private float timer;
 
     public bool shooting = false;
+    public float maxCooldown = 3;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class EnemyShoot : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer >= 2)
+            if (timer >= maxCooldown)
             {
                 timer = 0;
                 Shoot();
