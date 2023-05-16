@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public bool jump = false;
     public bool canMove = true;
     public bool grounded = true;
-    
+    bool inWater = false;
+
     public Rigidbody2D playerRb;
 
     public BloodCollection bloodCollect;
@@ -44,9 +45,9 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && canMove == true /*&& grounded == true jumpCount > 0*/)
+        if (Input.GetKeyDown(KeyCode.Space) && canMove == true)
         {
-            if(bloodCollect.DJumpUS == 0 && grounded == true)
+            if(bloodCollect.DJumpUS == 0 && grounded == true || bloodCollect.DJumpUS == 0 && inWater == true)
             {
                 jump = true;
             }
@@ -78,6 +79,24 @@ public class PlayerController : MonoBehaviour
             {
                 jumpCount = 1;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Water")
+        {
+            maxSpeed = 3;
+            inWater = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Water")
+        {
+            maxSpeed = 5;
+            inWater = false;
         }
     }
 }

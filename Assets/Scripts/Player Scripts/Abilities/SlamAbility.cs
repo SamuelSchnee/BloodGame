@@ -4,96 +4,60 @@ using UnityEngine;
 
 public class SlamAbility : Ability
 {
-    Rigidbody2D playerBody;
-    public PlayerController playerCnt;
-    public LayerMask groundLayer;
-    public Collider2D groundDetector;
-    public bool grounded;
-    public float slamSpeed;
-    public bool slamming;
-    public float stunTime = .25f;
+    /// <Make sure to eventually make all abilities child classes of Ability script. Look at line 5>
+    /// //////////////////////////////////////////      
+    /// </summary>
+    public Transform leftHitbox;
+    public Transform rightHitbox;
+    public GameObject breakableGround;
 
-    public Transform slamHitbox;
-    public float hitboxSize;
     public LayerMask enemyLayers;
-    private Health enemyHealth;
+    public LayerMask groundLayers;
 
-    void Start()
+    public float hitboxSize = .5f;
+
+    public Health enemyHealth;
+
+    private void Start()
     {
-        playerBody = GetComponent<Rigidbody2D>();
-        playerCnt = GetComponent<PlayerController>();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (groundDetector.IsTouchingLayers(groundLayer))
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
-        if(cooldown >= 0)
-        {
-            cooldown -= cooldownSpeed;
-        }
-        if(cooldown <= 0)
-        {
-            readyToUse = true;
-        }
-
-        if(grounded == false && Input.GetKeyDown(KeyCode.Alpha1) && readyToUse == true)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Slam();
-        }
-
-        if(slamming == true && grounded == true)
-        {
-            HitboxActive();
         }
     }
 
     void Slam()
     {
-        playerBody.velocity = Vector2.zero;
-        playerBody.AddForce(Vector2.down * slamSpeed, ForceMode2D.Impulse);
-        slamming = true;
-        readyToUse = false;
-        cooldown = cooldownLength;
-        playerCnt.canMove = false;
-        Invoke("Stun", stunTime);
-    }
-
-    void Stun()
-    {
-        playerCnt.canMove = true;
-    }
-
-    void HitboxActive()
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(slamHitbox.position, hitboxSize, enemyLayers);
-        
-        if (slamming == true)
+        Collider2D[] hitEnemyLeft = Physics2D.OverlapCircleAll(leftHitbox.position, hitboxSize, enemyLayers);
+        foreach (Collider2D enemy in hitEnemyLeft)
         {
-            foreach (Collider2D enemy in hitEnemies)
+            enemyHealth = enemy.GetComponent<Health>();
+            enemyHealth.TakeDamage(damage);
+        }
+        Collider2D[] hitEnemyRight = Physics2D.OverlapCircleAll(rightHitbox.position, hitboxSize, enemyLayers);
+        foreach (Collider2D enemy in hitEnemyRight)
+        {
+            enemyHealth = enemy.GetComponent<Health>();
+            enemyHealth.TakeDamage(damage);
+        }
+        /*Collider2D[] groundBreak = Physics2D.OverlapCircleAll(groundBreaker.position, hitboxSize + 1, groundLayers);
+        foreach (Collider2D ground in groundBreak)
+        {
+            Debug.Log("ground Found");
+            if(ground.tag == "Breakable")
             {
-                Debug.Log("slammed " + enemy);
-                enemyHealth = enemy.GetComponent<Health>();
-                enemyHealth.TakeDamage(damage);
-                slamming = false;
+                Destroy(ground.gameObject);
             }
-        }
+        }*/
 
-        if (hitEnemies.Length == 0)
+        if(breakableGround != null)
         {
-            slamming = false;
+            Destroy(breakableGround);
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(slamHitbox.position, hitboxSize);
     }
 }

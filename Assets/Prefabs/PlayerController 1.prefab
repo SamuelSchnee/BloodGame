@@ -1,5 +1,101 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4832425770045906403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6784558229791204203}
+  m_Layer: 3
+  m_Name: Hitboxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6784558229791204203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832425770045906403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8964303924493160081}
+  - {fileID: 8964303925165076698}
+  - {fileID: 168918726037045982}
+  m_Father: {fileID: 8964303925022235708}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6911066845928256601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2140158033999567921}
+  m_Layer: 0
+  m_Name: GroundBreak
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2140158033999567921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911066845928256601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.696, z: 0.69463265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8964303925908269325}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6977528046328687691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168918726037045982}
+  m_Layer: 3
+  m_Name: LeftSlamHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &168918726037045982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977528046328687691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.50000006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6784558229791204203}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8964303924493160094
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,13 +119,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8964303924493160094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: 0.06, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.82, y: 0.060000036, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8964303925022235708}
-  m_RootOrder: 4
+  m_Father: {fileID: 6784558229791204203}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8964303924687651554
 GameObject:
@@ -282,6 +378,7 @@ GameObject:
   - component: {fileID: 8964303924761458010}
   - component: {fileID: 8964303925759527628}
   - component: {fileID: 8964303925759527630}
+  - component: {fileID: 3560412356434392432}
   - component: {fileID: 8964303924761458009}
   - component: {fileID: 8964303924761458013}
   - component: {fileID: 8964303924761458008}
@@ -310,7 +407,7 @@ Transform:
   - {fileID: 8964303925022235708}
   - {fileID: 8964303925908269325}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8964303925759527629
 Rigidbody2D:
@@ -392,6 +489,7 @@ MonoBehaviour:
   gameSpeed: 0
   jumpStrength: 0
   jumpCount: 0
+  maxSpeed: 5
   groundCheckPos: {fileID: 8964303925617810872}
   jump: 0
   canMove: 1
@@ -471,6 +569,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   hitboxSize: 0.5
+--- !u!114 &3560412356434392432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964303924761458021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6356e214660fc4d803875bfe25f431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heavyOn: 0
+  plyrCntrl: {fileID: 0}
+  waterEffector: {fileID: 0}
 --- !u!114 &8964303924761458009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,20 +660,17 @@ MonoBehaviour:
   damage: 50
   readyToUse: 0
   cooldownSpeed: 0.5
-  playerCnt: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  groundDetector: {fileID: 8964303924687651559}
-  grounded: 0
-  slamSpeed: 50
-  slamming: 0
-  stunTime: 0.5
-  slamHitbox: {fileID: 8964303925165076698}
-  hitboxSize: 1.02
+  leftHitbox: {fileID: 0}
+  rightHitbox: {fileID: 0}
+  groundBreaker: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  hitboxSize: 1.02
+  enemyHealth: {fileID: 0}
 --- !u!114 &926819498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,12 +780,11 @@ Transform:
   m_LocalScale: {x: 0.6625, y: 1.3441237, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6784558229791204203}
+  - {fileID: 8964303925403891099}
   - {fileID: 8964303924730282723}
   - {fileID: 8964303925584653222}
   - {fileID: 8964303925855754381}
-  - {fileID: 8964303925403891099}
-  - {fileID: 8964303924493160081}
-  - {fileID: 8964303925165076698}
   m_Father: {fileID: 8964303924761458023}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -779,7 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8964303925165076698}
   m_Layer: 0
-  m_Name: SlamHitbox
+  m_Name: RightSlamHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -792,13 +901,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8964303925165076699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.44, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.50000006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8964303925022235708}
-  m_RootOrder: 5
+  m_Father: {fileID: 6784558229791204203}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8964303925167957619
 GameObject:
@@ -1177,6 +1286,7 @@ Transform:
   - {fileID: 8964303925167957618}
   - {fileID: 8964303924687651557}
   - {fileID: 8964303924933429623}
+  - {fileID: 2140158033999567921}
   m_Father: {fileID: 8964303924761458023}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
