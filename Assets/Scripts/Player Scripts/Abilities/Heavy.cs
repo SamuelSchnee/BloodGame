@@ -53,6 +53,11 @@ public class Heavy : Ability
         if(other.gameObject.tag == "Water")
         {
             waterEffector = other.gameObject.GetComponent<BuoyancyEffector2D>();
+
+            if(heavyOn == true)
+            {
+                waterEffector.density = 0;
+            }
         }
     }
 

@@ -21,7 +21,7 @@ public class SlamAbility : Ability
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
