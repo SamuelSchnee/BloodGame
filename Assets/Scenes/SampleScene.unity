@@ -3561,7 +3561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272730651524560560, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: bloodAmount
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2272730651524560561, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: armor
@@ -3617,7 +3617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272730651524560567, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7076732964513206069, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: m_Size.y
@@ -4658,6 +4658,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1559984314120998978, guid: 12b9f2a23a15d0a46970cf8800759f5e, type: 3}
+      propertyPath: bloodAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3745745222333565353, guid: 12b9f2a23a15d0a46970cf8800759f5e, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -4708,7 +4712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3745745222333565362, guid: 12b9f2a23a15d0a46970cf8800759f5e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4765,12 +4769,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4930142953837502435, guid: a58f5c75429f9784aba2f2957d47537a, type: 3}
+      propertyPath: bloodAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4930142953837502437, guid: a58f5c75429f9784aba2f2957d47537a, type: 3}
       propertyPath: m_Name
       value: Slam Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4930142953837502437, guid: a58f5c75429f9784aba2f2957d47537a, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930142953837502438, guid: a58f5c75429f9784aba2f2957d47537a, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4834,6 +4846,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5365295253626216766, guid: 277316522d6c39a4e8f2c89806bbdf1b, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365295253821621033, guid: 277316522d6c39a4e8f2c89806bbdf1b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365295253821621039, guid: 277316522d6c39a4e8f2c89806bbdf1b, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4847,13 +4867,17 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2414688981132151572, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008753, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_Name
       value: EnemyShoot
       objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008753, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008757, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_RootOrder
@@ -4861,7 +4885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008757, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.97
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008757, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4898,6 +4922,10 @@ PrefabInstance:
     - target: {fileID: 7667054218980008757, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667054218980008758, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
+      propertyPath: bloodAmount
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
