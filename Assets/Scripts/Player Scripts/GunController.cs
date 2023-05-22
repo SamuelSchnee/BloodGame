@@ -15,16 +15,18 @@ public class GunController : MonoBehaviour
     private float mouseY;
     float timer;
 
+    public BloodCollection bloodCollect;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        bloodCollect = GetComponent<BloodCollection>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && cooldown <= 0)
+        if (Input.GetMouseButtonDown(1) && cooldown <= 0 && bloodCollect.shootUS == 1)
         {
             Fire();
             cooldown = maxcooldown;

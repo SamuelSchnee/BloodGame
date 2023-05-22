@@ -8,7 +8,6 @@ public class NewPunchController : Ability
     public LayerMask enemyLayers;
     public float hitboxSize = .5f;
     public Health enemyHealth;
-    public float damage;
 
     public float attackRate = 2f;
     float nextAttackTime = 0;

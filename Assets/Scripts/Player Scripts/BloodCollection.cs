@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BloodCollection : MonoBehaviour
 {
-    public float slam, dash, DJump, shield;
-    public int slamUS, dashUS, DJumpUS, shieldUS;
+    public float heavy, dash, DJump, breaker, shoot;
+    public int heavyUS, dashUS, DJumpUS, breakerUS, shootUS;
+
+    public PauseMenu pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,45 +19,61 @@ public class BloodCollection : MonoBehaviour
     void Update()
     {
         
-        if (dash >= 100)
+        if (heavy >= 100)
         {
-            dashUS = 1;
+            heavyUS = 1;
         }
         if (DJump >= 100)
         {
             DJumpUS = 1;
         }
-        if (shield >= 100)
+        if (breaker >= 100)
         {
-            shieldUS = 1;
+            breakerUS = 1;
+        }
+        if(shoot >= 100)
+        {
+            shootUS = 1;
         }
     }
 
     public void increaseBlood(string type, float amount)
     {
-        if (type == "slam")
+        if (type == "shoot")
         {
             Debug.Log(amount);
-            slam += amount;
-            if (slam >= 100)
+            shoot += amount;
+            pauseMenu.TrackShoot(shoot);
+            if (shoot >= 100)
             {
-                slamUS = 1;
+                shootUS = 1;
             }
         }
-        else if (type == "dash")
+        else if (type == "breaker")
         {
-            dash += amount;
-            if(dash >= 100)
+            breaker += amount;
+            pauseMenu.TrackBreak(breaker);
+            if(breaker >= 100)
             {
-                dashUS = 1;
+                breakerUS = 1;
             }
         }
         else if (type == "djump")
         {
             DJump += amount;
+            pauseMenu.TrackBloodDJump(DJump);
             if(DJump >= 100)
             {
                 DJumpUS = 1;
+            }
+        }
+        else if (type == "heavy")
+        {
+            heavy += amount;
+            pauseMenu.TrackHeavy(heavy);
+            if(heavy >= 100)
+            {
+                heavyUS = 1;
             }
         }
     }

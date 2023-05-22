@@ -18,15 +18,16 @@ public class SlamAbility : Ability
     public float maxCooldown = 1;
 
     public Health enemyHealth;
+    public BloodCollection bloodCollect;
 
     private void Start()
     {
-
+        bloodCollect = GetComponent<BloodCollection>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && cooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.Q) && cooldown <= 0 && bloodCollect.breakerUS == 1)
         {
             Slam();
             cooldown = maxCooldown;

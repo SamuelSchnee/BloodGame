@@ -11,6 +11,7 @@ public class NewDJEnemy : MonoBehaviour
     public float targetBounds = 5;
     public float jumpStrength = 5;
     public float launchStrength;
+    public bool canAttack= true;
 
     float cooldown;
     public float maxCooldown;
@@ -34,6 +35,7 @@ public class NewDJEnemy : MonoBehaviour
         {
             myRB.velocity = new Vector2(0, jumpStrength);
             cooldown = maxCooldown;
+            canAttack = true;
         }
 
         if(cooldown > 0 && grounded == true)
@@ -52,14 +54,16 @@ public class NewDJEnemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && grounded == false)
+        if (other.gameObject.tag == "Player" && grounded == false && canAttack == true)
         {
+            canAttack = false;
             playerHealth = other.gameObject.GetComponent<Health>();
             playerRB = other.gameObject.GetComponent<Rigidbody2D>();
 
             playerHealth.TakeDamage(damage);
 
             playerRB.velocity = new Vector2(0, launchStrength);
+            Debug.Log("hit player");
         }
     }
 }

@@ -8,15 +8,17 @@ public class Heavy : Ability
     public PlayerController plyrCntrl;
     public BuoyancyEffector2D waterEffector;
     public float maxCooldown = 1;
+    public BloodCollection bloodCollect;
 
     private void Start()
     {
         plyrCntrl = GetComponent<PlayerController>();
+        bloodCollect = GetComponent<BloodCollection>();
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && cooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.R) && cooldown <= 0 && bloodCollect.heavyUS ==1)
         {
             Debug.Log("hitting R");
             if (heavyOn == false)
