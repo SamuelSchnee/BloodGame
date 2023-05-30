@@ -25,20 +25,12 @@ public class Heavy : Ability
             {
                 heavyOn = true;
                 plyrCntrl.maxSpeed = 1;
-                if(waterEffector != null)
-                {
-                    waterEffector.density = 0;
-                }
             }
 
             else if (heavyOn == true)
             {
                 heavyOn = false;
                 plyrCntrl.maxSpeed = 5;
-                if(waterEffector != null)
-                {
-                    waterEffector.density = 2;
-                }
             }
 
             cooldown = maxCooldown;
@@ -55,19 +47,37 @@ public class Heavy : Ability
         if(other.gameObject.tag == "Water")
         {
             waterEffector = other.gameObject.GetComponent<BuoyancyEffector2D>();
-
             if(heavyOn == true)
             {
                 waterEffector.density = 0;
+            }
+            if(heavyOn == false)
+            {
+                waterEffector.density = 2;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Water")
+        {
+            waterEffector = other.gameObject.GetComponent<BuoyancyEffector2D>();
+            if(heavyOn == true)
+            {
+                waterEffector.density = 0;
+            }
+            else if(heavyOn == false)
+            {
+                waterEffector.density = 2;
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Water")
+       /* if(other.gameObject.tag == "Water")
         {
             waterEffector = null;
-        }
+        }*/
     }
 }
