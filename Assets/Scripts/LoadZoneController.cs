@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class LoadZoneController : MonoBehaviour
 {
     public GameObject desiredLocation;
+    public bool goingToForest, goingToPlains;
+    public GameObject controller;
+    public BackgroundController backgroundCntlr;
+
+    private void Start()
+    {
+        backgroundCntlr = controller.GetComponent<BackgroundController>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +23,16 @@ public class LoadZoneController : MonoBehaviour
             {
                 Debug.Log("moving player");
                 other.transform.position = desiredLocation.transform.position;
+            }
+            if(goingToForest == true)
+            {
+                backgroundCntlr.inForest = true;
+                backgroundCntlr.inMountains = false;
+            }
+            if (goingToPlains == true)
+            {
+                backgroundCntlr.inMountains = true;
+                backgroundCntlr.inForest = false;
             }
         }
     }

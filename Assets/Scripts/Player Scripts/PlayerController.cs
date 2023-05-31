@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float gameSpeed;
     public float jumpStrength;
     public float jumpCount;
-    public float maxSpeed = 5;
+    public float maxSpeed = 4;
 
     public Transform groundCheckPos;
 
@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             maxSpeed = 3;
             inWater = true;
+            jumpCount = 1;
         }
     }
 
@@ -97,6 +98,15 @@ public class PlayerController : MonoBehaviour
         {
             maxSpeed = 5;
             inWater = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Water")
+        {
+            maxSpeed = 3;
+            inWater = true;
         }
     }
 }

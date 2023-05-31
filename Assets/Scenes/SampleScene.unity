@@ -3617,7 +3617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272730651524560567, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7076732964513206069, guid: 51c1f12a2d29a2b448c066c60e64a4a1, type: 3}
       propertyPath: m_Size.y
@@ -4712,7 +4712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3745745222333565362, guid: 12b9f2a23a15d0a46970cf8800759f5e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4779,7 +4779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4930142953837502437, guid: a58f5c75429f9784aba2f2957d47537a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4930142953837502438, guid: a58f5c75429f9784aba2f2957d47537a, type: 3}
       propertyPath: m_Enabled
@@ -4846,7 +4846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5365295253626216766, guid: 277316522d6c39a4e8f2c89806bbdf1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5365295253821621033, guid: 277316522d6c39a4e8f2c89806bbdf1b, type: 3}
       propertyPath: m_Enabled
@@ -4877,7 +4877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008753, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7667054218980008757, guid: a18784b8261e24a42a1c37fa23b94a8d, type: 3}
       propertyPath: m_RootOrder
@@ -4944,6 +4944,22 @@ PrefabInstance:
       objectReference: {fileID: 1078626210}
     - target: {fileID: 8964303924761458009, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
       propertyPath: maxcooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964303924761458010, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: DJumpUS
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964303924761458010, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: heavyUS
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964303924761458010, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: shootUS
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964303924761458010, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
+      propertyPath: breakerUS
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8964303924761458010, guid: 7797c84e86c24ca43b60f09dca030bf3, type: 3}
