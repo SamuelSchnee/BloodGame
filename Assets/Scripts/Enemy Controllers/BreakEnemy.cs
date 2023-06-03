@@ -7,6 +7,9 @@ public class BreakEnemy : MonoBehaviour
     public bool mustPatrol;
     private bool mustTurn;
 
+    public Animator animator;
+    public AnimatorControllerParameter attackAnimation;
+
     public float moveSpeed;
     public float attackRange;
     private float distToPlayer;
@@ -19,8 +22,8 @@ public class BreakEnemy : MonoBehaviour
     public GameObject player;
     public float enemyDetectionRange = 3;
 
-    float cooldown;
-    public float maxCooldown;
+    public float cooldown;
+    public float maxCooldown = 10;
     public bool breaking;
     public bool canAttack = true;
     public Transform breakLocation;
@@ -36,6 +39,7 @@ public class BreakEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.GetComponent<Transform>();
         playerHealth = player.GetComponent<Health>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -54,17 +58,23 @@ public class BreakEnemy : MonoBehaviour
 
         if (distToPlayer <= attackRange)
         {
-            if (playerPos.position.x > transform.position.x && transform.localScale.x < 0
-                || playerPos.position.x < transform.position.x && transform.localScale.x > 0)
+            if (playerPos.position.x < transform.position.x && transform.localScale.x > 0
+                || playerPos.position.x > transform.position.x && transform.localScale.x < 0)
             {
                 Flip();
+                Debug.Log("Flip");
             }
             mustPatrol = false;
             enemyRb.velocity = Vector2.zero;
-            Break();
             if(cooldown <= 0)
             {
                 canAttack = true;
+                //Break();
+            }
+            if(canAttack == true)
+            {
+                canAttack = false;
+                Break();
             }
         }
         else
@@ -100,16 +110,25 @@ public class BreakEnemy : MonoBehaviour
 
     private void Break()
     {
+        Debug.Log("Break Activating");
+        animator.SetTrigger("Attack");
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(breakLocation.position, hitboxSize, playerlayer);
-        if (hitPlayer != null && canAttack == true)
+        if (hitPlayer != null /*&& canAttack == true*/)
         {
             foreach (Collider2D player in hitPlayer)
             {
-                canAttack = false;
+                Debug.Log(player);
                 playerHealth.TakeDamage(damage);
+                animator.SetTrigger("DontAttack");
+                Debug.Log("attacked");
                 cooldown = maxCooldown;
             }
         }
+        if (hitPlayer == null)
+        {
+            Patrol();
+        }
+
     }
 
     private void OnDrawGizmosSelected()

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,7 +105,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: headSlamSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1290
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891bcd6aac8c85246b6c54c9cfd01388
+      internalID: 1334956976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_1
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 1287
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5297f47c6220fc46a117bf6dda6b309
+      internalID: 1475799884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_2
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1290
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9a5db3db9d1634291c13ec33f95e67
+      internalID: 560037900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 860
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42038ba5258e73e4780c42d5fa90fd9e
+      internalID: -1816800614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 860
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7426dbe50336741aab4dc5cd9c9c71
+      internalID: 797806170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 860
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a48010d18ae51d4c8253a5607eb5167
+      internalID: 965458200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 430
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163e8ddb00d734947a5eeb634acdafdd
+      internalID: -179645070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 430
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804baafd0ab57574089bb9e7028ae484
+      internalID: -894543704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_8
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 430
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7165006b2fe5944b7fb5524db776dd
+      internalID: -850039284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e3dc23ca808c24cb1158ca7b19de41
+      internalID: 1011542583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_10
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 700
+        height: 430
+      alignment: 9
+      pivot: {x: 0.7323995, y: 0.4512355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66411195b21e69e41bfe9916d49a9108
+      internalID: -1752460291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: headSlamSprite_11
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 700
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3dde9afd59c504a88f20636c99474e
+      internalID: 1553448485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -116,7 +368,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      headSlamSprite_1: 1475799884
+      headSlamSprite_3: -1816800614
+      headSlamSprite_10: -1752460291
+      headSlamSprite_2: 560037900
+      headSlamSprite_8: -850039284
+      headSlamSprite_9: 1011542583
+      headSlamSprite_7: -894543704
+      headSlamSprite_0: 1334956976
+      headSlamSprite_6: -179645070
+      headSlamSprite_11: 1553448485
+      headSlamSprite_5: 965458200
+      headSlamSprite_4: 797806170
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
