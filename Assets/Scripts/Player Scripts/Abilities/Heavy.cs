@@ -30,7 +30,7 @@ public class Heavy : Ability
             else if (heavyOn == true)
             {
                 heavyOn = false;
-                plyrCntrl.maxSpeed = 5;
+                plyrCntrl.maxSpeed = 2.52f;
             }
 
             cooldown = maxCooldown;

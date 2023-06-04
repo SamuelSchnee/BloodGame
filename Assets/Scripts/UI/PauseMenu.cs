@@ -20,10 +20,10 @@ public class PauseMenu : MonoBehaviour
         shootSlider.value = 0;
         breakSlider.value = 0;
         heavySlider.value = 0;
-        djText.text = "Collect Blood From Hard Shell Frogs: 0/100";
-        shootText.text = "Collect Blood From Spitters: 0/100";
-        breakText.text = "Collect Blood From Crushers: 0/100";
-        heavyText.text = "Collect Blood From Titan Flys: 0/100";
+        djText.text = "Hard Shell Frogs: 0/100";
+        shootText.text = "Spitters: 0/100";
+        breakText.text = "Crushers: 0/100";
+        heavyText.text = "Titan Flys: 0/100";
 
     }
 
@@ -71,21 +71,21 @@ public class PauseMenu : MonoBehaviour
     public void TrackBloodDJump(float blood)
     {
         djumpSlider.value = blood;
-        djText.text = "Collect Blood From Hard Shell Frogs: " + blood + "/100";
+        djText.text = "Hard Shell Frogs: " + blood + "/100";
     }
     public void TrackShoot(float blood)
     {
         shootSlider.value = blood;
-        shootText.text = "Collect Blood From Spitters: " + blood + "/100";
+        shootText.text = "Spitters: " + blood + "/100";
     }
     public void TrackBreak(float blood)
     {
         breakSlider.value = blood;
-        breakText.text = "Collect Blood From Crushers: " + blood + "/100"; 
+        breakText.text = "Crushers: " + blood + "/100"; 
     }
     public void TrackHeavy(float blood)
     {
         heavySlider.value = blood;
-        heavyText.text = "Collect Blood From Titan Flys: " + blood + "/100";
+        heavyText.text = "Titan Flys: " + blood + "/100";
     }
 }

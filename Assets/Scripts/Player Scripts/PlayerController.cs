@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool jump = false;
     public bool canMove = true;
     public bool grounded = true;
-    bool inWater = false;
+    public bool inWater = false;
 
     public Rigidbody2D playerRb;
 
@@ -82,22 +82,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            //maxSpeed = 5;
+            inWater = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Water")
         {
-            maxSpeed = 3;
+            //maxSpeed = 1;
             inWater = true;
             jumpCount = 1;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "Water")
-        {
-            maxSpeed = 5;
-            inWater = false;
         }
     }
 
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag == "Water")
         {
             Debug.Log("slowdown");
-            maxSpeed = 3;
+            //maxSpeed = 1;
             inWater = true;
         }
     }
