@@ -4,24 +4,42 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
-    public GameObject mountains, forest, player;
+    public GameObject mountains, forest, player, activeBackground;
     public float vertOffset = 5;
     public bool inMountains, inForest;
+    public GameObject myCamera;
+    public CameraController cameraController;
+    public GameObject fog;
+
     // Start is called before the first frame update
     void Start()
     {
         inMountains = true;
+        activeBackground = mountains;
         inForest = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        myCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraController = myCamera.GetComponent<CameraController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        fog.transform.position = player.transform.position;
+
+        if(cameraController.freezeCamera == false)
+        {
+            activeBackground.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + vertOffset);
+        }
+        else if(cameraController.freezeCamera == true)
+        {
+            activeBackground.transform.position = new Vector2(activeBackground.transform.position.x, player.transform.position.y + vertOffset);
+        }
+
         if(inMountains == true && mountains != null)
         {
             mountains.SetActive(true);
-            mountains.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + vertOffset);
+            activeBackground = mountains;
         }
         else
         {
@@ -33,7 +51,7 @@ public class BackgroundController : MonoBehaviour
             if (inForest == true)
             {
                 forest.SetActive(true);
-                forest.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + vertOffset);
+                activeBackground = forest;
             }
             else
             {

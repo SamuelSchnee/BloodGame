@@ -12,8 +12,7 @@ public class SlamEnemyController : MonoBehaviour
     public GameObject groundDetector;
     public Collider2D groundBody;
 
-    public GameObject hitbox1;
-    public GameObject hitbox2;
+    public GameObject player;
 
     public bool attacking = false;
     public bool doneAttacking = false;
@@ -26,20 +25,36 @@ public class SlamEnemyController : MonoBehaviour
     public float damage;
     public bool plzAttack = false;
 
+    public float cooldown;
+    public float maxcooldown;
+    public float attackRange = 2;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyrb = GetComponent<Rigidbody2D>();
         groundBody = groundDetector.GetComponent<Collider2D>();
-        hitbox1.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(cooldown >= 0)
+        {
+            cooldown -= Time.deltaTime;
+            targetFound = false;
+        }
 
-        if (targetFound == true && doneAttacking == false)
+        if(cooldown <= 0 && doneAttacking == false)
+        {
+            if(player.transform.position.x <= transform.position.x + attackRange && player.transform.position.x >= transform.position.x - attackRange)
+            {
+                targetFound = true;
+            }
+        }
+
+        if (targetFound == true && doneAttacking == false && cooldown <= 0)
         {
             pathing.mustPatorl = false;
             enemyrb.velocity = Vector2.zero;
@@ -78,6 +93,7 @@ public class SlamEnemyController : MonoBehaviour
         }
         if(transform.position.y >= enemyReturn.transform.position.y)
         {
+            cooldown = maxcooldown;
             enemyrb.velocity = Vector2.zero;
             pathing.mustPatorl = true;
             Debug.Log("returnToPathing");
@@ -95,65 +111,6 @@ public class SlamEnemyController : MonoBehaviour
             enemyrb.velocity = Vector2.zero;
             attacking = true;
             plzAttack = true;
-            //StartCoroutine(Attack());
-            /*Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, hitboxSize, playerLayer);
-
-            if (hitPlayer != null && attacking == true && doneAttacking == false)
-            {
-                foreach (Collider2D player in hitPlayer)
-                {
-                    Debug.Log("player Hit" + timeTest);
-                    playerHealth = player.GetComponent<Health>();
-                    playerHealth.TakeDamage(damage);
-                    attacking = false;
-                }
-                doneAttacking = true;
-                targetFound = false;
-            }
-            if(attacking == true && doneAttacking == false)
-            {
-                Debug.Log("attack called");
-                Attacking();
-                
-            }*/
-        }
-    }
-
-   /* public void Attacking()
-    {
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, hitboxSize, playerLayer);
-
-        if (hitPlayer != null && attacking == true && doneAttacking == false)
-        {
-            foreach (Collider2D player in hitPlayer)
-            {
-                Debug.Log("player Hit");
-                playerHealth = player.GetComponent<Health>();
-                playerHealth.TakeDamage(damage);
-                doneAttacking = true;
-                targetFound = false;
-                attacking = false;
-                Debug.Log("finsihed");
-            }
-        }
-        /*else if(hitPlayer == null)
-        {
-            doneAttacking = true;
-            targetFound = false;
-            attacking = false;
-        }
-    }*/
-
-    IEnumerator Attack()
-    {
-        if (attacking == true && doneAttacking == false)
-        {
-            hitbox1.SetActive(true);
-            yield return new WaitForSecondsRealtime(.1f);
-            hitbox1.SetActive(false);
-            doneAttacking = true;
-            targetFound = false;
-            attacking = false;
         }
     }
 

@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Water")
         {
+            Debug.Log("slowdown");
             maxSpeed = 3;
             inWater = true;
         }

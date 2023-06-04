@@ -103,7 +103,7 @@ Transform:
   - {fileID: 7667054219707225110}
   - {fileID: 8497313161653132444}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7667054218980008755
 Rigidbody2D:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodType: shoot
-  bloodAmount: 20
+  bloodAmount: 100
 --- !u!114 &2414688981132151572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7667054218980008753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3b7bd7f8b660a54c919b82e7f93cdd3, type: 3}
   m_Name: 

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4930142953183165703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.26, y: -1.08, z: 0}
+  m_LocalPosition: {x: 3.18, y: -1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4930142953364078813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.555, y: 0, z: 0}
+  m_LocalPosition: {x: 2.42, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 4930142953837502435}
   - component: {fileID: 5037352222250018095}
   - component: {fileID: 4175099169558134875}
+  - component: {fileID: 1050123079}
   m_Layer: 7
   m_Name: Slam Enemy
   m_TagString: enemy
@@ -154,7 +155,7 @@ Transform:
   - {fileID: 4930142954607813346}
   - {fileID: 4930142953364078814}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4930142953837502433
 SpriteRenderer:
@@ -199,7 +200,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: afd97aeeb629d794c9652eb29691db03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -228,7 +229,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4930142953837502438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,8 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mustPatrol: 0
+  animator: {fileID: 0}
   moveSpeed: 200
-  attackRange: 3
+  attackRange: 2.4
   enemyRb: {fileID: 0}
   groundCheckPos: {fileID: 4930142954607813346}
   groundLayer:
@@ -253,6 +255,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   player: {fileID: 0}
   enemyDetectionRange: 1
+  cooldown: 0
   maxCooldown: 3
   breaking: 0
   canAttack: 1
@@ -261,7 +264,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   playerHealth: {fileID: 0}
-  damage: 0
+  damage: 20
   hitboxSize: 0.5
 --- !u!114 &4930142953837502460
 MonoBehaviour:
@@ -276,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 0
+  maxHealth: 100
   armor: 0
   invulnerable: 0
   OnDeath:
@@ -311,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodType: breaker
-  bloodAmount: 25
+  bloodAmount: 100
 --- !u!70 &5037352222250018095
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -325,8 +328,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.56}
-  m_Size: {x: 3.8799999, y: 1.76}
+  m_Offset: {x: -0.00000009594551, y: -0.8048494}
+  m_Size: {x: 3.8800006, y: 2.2497132}
   m_Direction: 1
 --- !u!70 &4175099169558134875
 CapsuleCollider2D:
@@ -341,9 +344,29 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.27, y: 0.4}
+  m_Offset: {x: 1.32, y: 0.4}
   m_Size: {x: 1.39, y: 3}
   m_Direction: 0
+--- !u!95 &1050123079
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930142953837502437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ccde7d20246b644c913e3c9ac13408d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4930142954607813345
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4930142954607813345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.58, z: 0}
+  m_LocalPosition: {x: 0, y: -2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
