@@ -7,7 +7,9 @@ public class BloodCollection : MonoBehaviour
 {
     public float heavy, dash, DJump, breaker, shoot;
     public int heavyUS, dashUS, DJumpUS, breakerUS, shootUS;
+
     public bool heavyFK, DJumpFK, breakerFK, shootFK;
+    private bool heavyAK, djumpAK, breakerAK, shootAK;
 
     public PauseMenu pauseMenu;
 
@@ -57,6 +59,11 @@ public class BloodCollection : MonoBehaviour
             if (shoot >= 100)
             {
                 shootUS = 1;
+                if(shootAK == false)
+                {
+                    shootAK = true;
+                    info.PowerGraphic("spitter");
+                }
             }
         }
         else if (type == "breaker")
@@ -71,6 +78,11 @@ public class BloodCollection : MonoBehaviour
             if(breaker >= 100)
             {
                 breakerUS = 1;
+                if(breakerAK == false)
+                {
+                    breakerAK = true;
+                    info.PowerGraphic("crusher");
+                }
             }
         }
         else if (type == "djump")
@@ -85,6 +97,11 @@ public class BloodCollection : MonoBehaviour
             if(DJump >= 100)
             {
                 DJumpUS = 1;
+                if(djumpAK == false)
+                {
+                    djumpAK = true;
+                    info.PowerGraphic("frog");
+                }
             }
         }
         else if (type == "heavy")
@@ -99,6 +116,11 @@ public class BloodCollection : MonoBehaviour
             if(heavy >= 100)
             {
                 heavyUS = 1;
+                if(heavyAK == false)
+                {
+                    heavyAK = true;
+                    info.PowerGraphic("fly");
+                }
             }
         }
     }
