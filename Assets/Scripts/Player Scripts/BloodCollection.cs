@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BloodCollection : MonoBehaviour
 {
     public float heavy, dash, DJump, breaker, shoot;
     public int heavyUS, dashUS, DJumpUS, breakerUS, shootUS;
+    public bool heavyFK, DJumpFK, breakerFK, shootFK;
 
     public PauseMenu pauseMenu;
+
+    public EnemyInfo info;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +46,11 @@ public class BloodCollection : MonoBehaviour
     {
         if (type == "shoot")
         {
+            if(shootFK == false)
+            {
+                shootFK = true;
+                info.InfoGraphics("spitter");
+            }
             Debug.Log(amount);
             shoot += amount;
             pauseMenu.TrackShoot(shoot);
@@ -51,6 +61,11 @@ public class BloodCollection : MonoBehaviour
         }
         else if (type == "breaker")
         {
+            if(breakerFK == false)
+            {
+                breakerFK = true;
+                info.InfoGraphics("crusher");
+            }
             breaker += amount;
             pauseMenu.TrackBreak(breaker);
             if(breaker >= 100)
@@ -60,6 +75,11 @@ public class BloodCollection : MonoBehaviour
         }
         else if (type == "djump")
         {
+            if(DJumpFK == false)
+            {
+                DJumpFK = true;
+                info.InfoGraphics("frog");
+            }
             DJump += amount;
             pauseMenu.TrackBloodDJump(DJump);
             if(DJump >= 100)
@@ -69,6 +89,11 @@ public class BloodCollection : MonoBehaviour
         }
         else if (type == "heavy")
         {
+            if(heavyFK == false)
+            {
+                heavyFK = true;
+                info.InfoGraphics("fly");
+            }
             heavy += amount;
             pauseMenu.TrackHeavy(heavy);
             if(heavy >= 100)

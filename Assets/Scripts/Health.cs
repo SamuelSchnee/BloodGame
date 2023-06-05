@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     public float armor;
     public float invulnerable;
 
+    public GameObject parent;
+
     public UnityEvent OnDeath;
     public UnityEvent OnDamaged;
 
@@ -43,7 +45,12 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             OnDeath.Invoke();
+            if(parent != null)
+            {
+                Destroy(parent.gameObject);
+            }
             Destroy(this.gameObject);
+            
         }
     }
 }
