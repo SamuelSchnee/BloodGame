@@ -58,19 +58,19 @@ public class StoryController : MonoBehaviour
 
     public void ProgressStory(string enemy)
     {
-        if(enemy == "Spitter")
+        if(enemy == "spitter")
         {
             spitterKilled++;
         }
-        else if(enemy == "Frog")
+        else if(enemy == "frog")
         {
             frogKilled++;
         }
-        else if(enemy == "Fly")
+        else if(enemy == "fly")
         {
             flyKilled++;
         }
-        else if(enemy == "Crusher")
+        else if(enemy == "crusher")
         {
             crusherKilled++;
         }

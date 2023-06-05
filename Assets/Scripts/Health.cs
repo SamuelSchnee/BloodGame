@@ -9,13 +9,17 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public float armor;
     public float invulnerable;
-
+    
     public GameObject parent;
 
     public UnityEvent OnDeath;
     public UnityEvent OnDamaged;
 
     public HealthBar healthBar;
+    public GameObject storymaster;
+    public StoryController story;
+
+    public string enemyType;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,8 @@ public class Health : MonoBehaviour
         {
             healthBar.SetMaxHealth(maxHealth);
         }
+        storymaster = GameObject.FindGameObjectWithTag("Story");
+        story = storymaster.GetComponent<StoryController>();
     }
 
     // Update is called once per frame
@@ -49,7 +55,12 @@ public class Health : MonoBehaviour
             {
                 Destroy(parent.gameObject);
             }
+            if(enemyType != null)
+            {
+                story.ProgressStory(enemyType);
+            }
             Destroy(this.gameObject);
+            
             
         }
     }

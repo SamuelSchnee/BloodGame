@@ -155,7 +155,7 @@ Transform:
   - {fileID: 4930142954607813346}
   - {fileID: 4930142953364078814}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4930142953837502433
 SpriteRenderer:
@@ -282,6 +282,7 @@ MonoBehaviour:
   maxHealth: 100
   armor: 0
   invulnerable: 0
+  parent: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -297,10 +298,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: StoryController, Assembly-CSharp
+        m_MethodName: ProgressStory
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: crusher
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
+  storymaster: {fileID: 0}
+  story: {fileID: 0}
+  enemyType: crusher
 --- !u!114 &4930142953837502435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodType: breaker
-  bloodAmount: 100
+  bloodAmount: 34
 --- !u!70 &5037352222250018095
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

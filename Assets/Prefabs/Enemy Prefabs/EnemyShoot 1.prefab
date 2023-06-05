@@ -103,7 +103,7 @@ Transform:
   - {fileID: 7667054219707225110}
   - {fileID: 8497313161653132444}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7667054218980008755
 Rigidbody2D:
@@ -142,6 +142,7 @@ MonoBehaviour:
   maxHealth: 100
   armor: 5
   invulnerable: 0
+  parent: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -161,6 +162,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
+  storymaster: {fileID: 0}
+  story: {fileID: 0}
+  enemyType: spitter
 --- !u!114 &7667054218980008758
 MonoBehaviour:
   m_ObjectHideFlags: 0

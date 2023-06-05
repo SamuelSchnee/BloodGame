@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5365295252895831968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.44, y: 0, z: 0}
+  m_LocalPosition: {x: 13.93, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,7 +210,7 @@ Transform:
   - {fileID: 5365295252583344481}
   - {fileID: 5365295252895831971}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5365295253821621026
 GameObject:
@@ -358,6 +358,7 @@ MonoBehaviour:
   maxHealth: 100
   armor: 0
   invulnerable: 0
+  parent: {fileID: 5365295253626216766}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -377,6 +378,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
+  storymaster: {fileID: 0}
+  story: {fileID: 0}
+  enemyType: fly
 --- !u!114 &5365295253821621032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5365295254151613701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.74, y: 0, z: 0}
+  m_LocalPosition: {x: -15.21, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

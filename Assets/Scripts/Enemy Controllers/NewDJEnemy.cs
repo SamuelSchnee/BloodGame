@@ -13,6 +13,8 @@ public class NewDJEnemy : MonoBehaviour
     public float launchStrength;
     public bool canAttack= true;
 
+    Animator myAnimator;
+
     float cooldown;
     public float maxCooldown;
     public Transform groundCheck;
@@ -25,6 +27,7 @@ public class NewDJEnemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         myRB = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,10 +49,13 @@ public class NewDJEnemy : MonoBehaviour
         if (myRB.IsTouchingLayers(groundLayers))
         {
             grounded = true;
+            myAnimator.SetBool("InAir", false);
+            //InAir
         }
         else
         {
             grounded = false;
+            myAnimator.SetBool("InAir", true);
         }
     }
 

@@ -76,6 +76,7 @@ MonoBehaviour:
   maxHealth: 0
   armor: 0
   invulnerable: 0
+  parent: {fileID: 3745745222333565362}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -95,6 +96,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
+  storymaster: {fileID: 0}
+  story: {fileID: 0}
+  enemyType: frog
 --- !u!114 &1782124920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,8 +126,6 @@ GameObject:
   - component: {fileID: 3745745222333565359}
   - component: {fileID: 3745745222333565356}
   - component: {fileID: 3745745222333565357}
-  - component: {fileID: 1824810528926760923}
-  - component: {fileID: 1559984314120998978}
   - component: {fileID: 739486871}
   m_Layer: 0
   m_Name: DJEnemy
@@ -146,7 +148,7 @@ Transform:
   m_Children:
   - {fileID: 1782124919}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3745745222333565358
 SpriteRenderer:
@@ -272,55 +274,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damage: 30
---- !u!114 &1824810528926760923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3745745222333565362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52460e059abbce84a87e6c4ed5eec8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 200
-  armor: 0
-  invulnerable: 0
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1559984314120998978}
-        m_TargetAssemblyTypeName: GiveBlood, Assembly-CSharp
-        m_MethodName: GiveBloodToPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  healthBar: {fileID: 0}
---- !u!114 &1559984314120998978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3745745222333565362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodType: djump
-  bloodAmount: 100
 --- !u!95 &739486871
 Animator:
   serializedVersion: 4
