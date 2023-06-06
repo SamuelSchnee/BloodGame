@@ -6,9 +6,9 @@ public class BreakEnemy : MonoBehaviour
 {
     public bool mustPatrol;
     private bool mustTurn;
+    private bool doneAttacking;
 
     public Animator animator;
-    public AnimatorControllerParameter attackAnimation;
 
     public float moveSpeed;
     public float attackRange;
@@ -44,6 +44,12 @@ public class BreakEnemy : MonoBehaviour
 
     void Update()
     {
+        if(doneAttacking == true)
+        {
+            animator.SetBool("AttackingAnim", false);
+            doneAttacking = false;
+        }
+
         if(cooldown >= 0)
         {
             cooldown -= Time.deltaTime;
@@ -110,8 +116,8 @@ public class BreakEnemy : MonoBehaviour
 
     private void Break()
     {
+        animator.SetBool("AttackingAnim", true);
         Debug.Log("Break Activating");
-        animator.SetTrigger("Attack");
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(breakLocation.position, hitboxSize, playerlayer);
         if (hitPlayer != null /*&& canAttack == true*/)
         {
@@ -122,7 +128,9 @@ public class BreakEnemy : MonoBehaviour
                 animator.SetTrigger("DontAttack");
                 Debug.Log("attacked");
                 cooldown = maxCooldown;
+                doneAttacking = true;
             }
+
         }
         if (hitPlayer == null)
         {

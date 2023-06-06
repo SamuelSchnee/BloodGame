@@ -66,6 +66,7 @@ public class SlamEnemyController : MonoBehaviour
         }
         if(plzAttack == true)
         {
+            Debug.Log("plz attack");
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, hitboxSize, playerLayer);
 
             if (hitPlayer != null && attacking == true && doneAttacking == false)
@@ -75,13 +76,14 @@ public class SlamEnemyController : MonoBehaviour
                     Debug.Log("player Hit");
                     playerHealth = player.GetComponent<Health>();
                     playerHealth.TakeDamage(damage);
-                    doneAttacking = true;
-                    targetFound = false;
-                    attacking = false;
-                    plzAttack = false;
-                    Debug.Log("finsihed");
                 }
             }
+
+            Debug.Log("no target hit");
+            doneAttacking = true;
+            targetFound = false;
+            attacking = false;
+            plzAttack = false;
         }
     }
 
