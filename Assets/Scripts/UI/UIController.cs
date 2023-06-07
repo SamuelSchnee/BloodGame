@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
         coinsText.text = "Coins Collected:" + coinsCollected + "/" + maxCoins;
         if(coinsCollected >= maxCoins)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("WinScene");
         }
     }
 }

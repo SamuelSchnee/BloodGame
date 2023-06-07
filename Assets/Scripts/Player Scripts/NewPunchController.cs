@@ -19,10 +19,15 @@ public class NewPunchController : Ability
     public GameObject mySprite;
     Animator myAnimator;
 
+    AudioSource myAudio;
+    public AudioClip punchHit;
+    public float volume;
+
     private void Start()
     {
         myAnimator = mySprite.GetComponent<Animator>();
         myCooldown = 0;
+        myAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -43,7 +48,6 @@ public class NewPunchController : Ability
             {
                 myAnimator.SetBool("Punching", true);
                 Attack();
-                Debug.Log("check");
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
@@ -55,8 +59,6 @@ public class NewPunchController : Ability
 
         if(animate == true)
         {
-            //myAnimator.SetBool("Punching", false);
-            Debug.Log("check2");
             animate = false;
         }
     }
@@ -70,6 +72,7 @@ public class NewPunchController : Ability
             Debug.Log("we hit" + enemy.name);
             enemyHealth = enemy.GetComponent<Health>();
             enemyHealth.TakeDamage(damage);
+            myAudio.PlayOneShot(punchHit, volume);
         }
         animate = true;
         myCooldown = maxCooldown;
@@ -80,3 +83,7 @@ public class NewPunchController : Ability
         Gizmos.DrawWireSphere(punchHitbox.position, hitboxSize);
     }
 }
+
+
+
+//ledge by cave can not be made w/out double jump

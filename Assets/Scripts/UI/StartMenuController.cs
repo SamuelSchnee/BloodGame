@@ -12,11 +12,16 @@ public class StartMenuController : MonoBehaviour
 
     public void BeginButton()
     {
-        SceneManager.LoadScene("Full World");
+        SceneManager.LoadScene("AdviceScene");
     }
 
     public void BackButton()
     {
         SceneManager.LoadScene("IntroScene");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

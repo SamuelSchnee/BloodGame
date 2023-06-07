@@ -11,6 +11,10 @@ public class BackgroundController : MonoBehaviour
     public CameraController cameraController;
     public GameObject fog;
 
+    public AudioSource myAudio1;
+    public AudioSource myAudio2;
+    public bool startMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +62,15 @@ public class BackgroundController : MonoBehaviour
                 forest.SetActive(false);
             }
         }
+    }
+    public void StartForestMusic()
+    {
+        myAudio2.Play();
+        myAudio1.Stop();
+    }
+    public void StartPlainsMusic()
+    {
+        myAudio1.Play();
+        myAudio2.Stop();
     }
 }

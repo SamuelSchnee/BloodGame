@@ -20,10 +20,15 @@ public class BulletController : MonoBehaviour
     public float bulletSpeed = 1f;
     public Health enemyhealth;
 
+    AudioSource myAudio;
+    public AudioClip hit;
+    public float volume;
+
     void Start()
     {
         distFromTarget = 3;
         bulletRb = GetComponent<Rigidbody2D>();
+        myAudio = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -64,11 +69,10 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy" && distFromTarget < 2f)
         {
-            Debug.Log("hitEnemy");
             enemyhealth = collision.gameObject.GetComponent<Health>();
             enemyhealth.TakeDamage(damage);
-            Destroy(this.gameObject);
-            Debug.Log("destroyed");
+            myAudio.PlayOneShot(hit, volume);
+            Destroy(this.gameObject); 
         }
     }
 
@@ -76,11 +80,10 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy" && distFromTarget < 2f)
         {
-            Debug.Log("hitEnemy");
             enemyhealth = collision.gameObject.GetComponent<Health>();
             enemyhealth.TakeDamage(damage);
+            myAudio.PlayOneShot(hit, volume);
             Destroy(this.gameObject);
-            Debug.Log("destroyed");
         }
     }
 }

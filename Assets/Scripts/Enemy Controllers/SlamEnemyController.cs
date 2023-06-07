@@ -29,12 +29,17 @@ public class SlamEnemyController : MonoBehaviour
     public float maxcooldown;
     public float attackRange = 2;
 
+    AudioSource myaudio;
+    public AudioClip slam;
+    public float volume;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyrb = GetComponent<Rigidbody2D>();
         groundBody = groundDetector.GetComponent<Collider2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        myaudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -107,6 +112,8 @@ public class SlamEnemyController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(.2f);
         enemyrb.velocity = new Vector2(0, -30);
+
+        myaudio.PlayOneShot(slam, volume);
 
         if (groundBody.IsTouchingLayers(groundLayer))
         {

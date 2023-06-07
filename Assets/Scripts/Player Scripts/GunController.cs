@@ -17,10 +17,15 @@ public class GunController : MonoBehaviour
 
     public BloodCollection bloodCollect;
 
+    AudioSource myAudio;
+    public AudioClip shoot;
+    public float volume;
+
     // Start is called before the first frame update
     void Start()
     {
         bloodCollect = GetComponent<BloodCollection>();
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +48,8 @@ public class GunController : MonoBehaviour
 
     private void Fire()
     {
+        myAudio.PlayOneShot(shoot, volume);
+
         Vector2 spawnPos = spawnPoint.transform.position;
         mousePos = Camera.main.ScreenToWorldPoint (new Vector3(mouseX, mouseY, 0));
         Quaternion rot = bulletPrefab.transform.rotation;

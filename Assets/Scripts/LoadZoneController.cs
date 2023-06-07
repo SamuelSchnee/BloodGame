@@ -34,11 +34,13 @@ public class LoadZoneController : MonoBehaviour
             {
                 backgroundCntlr.inForest = true;
                 backgroundCntlr.inMountains = false;
+                backgroundCntlr.StartForestMusic();
             }
             if (goingToPlains == true)
             {
                 backgroundCntlr.inMountains = true;
                 backgroundCntlr.inForest = false;
+                backgroundCntlr.StartPlainsMusic();
             }
         }
     }

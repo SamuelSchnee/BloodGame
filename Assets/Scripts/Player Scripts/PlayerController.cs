@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheckPos;
 
+    AudioSource myAudioSource;
+    public AudioClip DJAudio;
+    public float volume;
+
     public bool jump = false;
     public bool canMove = true;
     public bool grounded = true;
@@ -36,18 +40,24 @@ public class PlayerController : MonoBehaviour
         jumpStrength = 29;
         playerRb = gameObject.GetComponent<Rigidbody2D>();
         bloodCollect = gameObject.GetComponent<BloodCollection>();
-        
+
+        myAudioSource = GetComponent<AudioSource>();
         myAnimator = mySprite.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (canMove == true)
         {
             horizontalInput = Input.GetAxis("Horizontal") * speed;
             horizontalInput = Mathf.Clamp(horizontalInput, -maxSpeed, maxSpeed);
-            transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
+            if (Mathf.Abs(horizontalInput) >= maxSpeed - 1)
+            {
+                transform.Translate(Vector2.right * horizontalInput * Time.deltaTime * speed * gameSpeed);
+            }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canMove == true)
@@ -66,6 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         if(jump == true)
         {
+            myAudioSource.PlayOneShot(DJAudio, volume);
             playerRb.velocity = Vector2.zero;
             playerRb.AddForce(Vector2.up * jumpStrength * gameSpeed, ForceMode2D.Impulse);
             jumpCount -= 1;

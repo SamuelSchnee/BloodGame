@@ -12,11 +12,15 @@ public class EnemyShoot : MonoBehaviour
 
     public bool shooting = false;
     public float maxCooldown = 3;
+
+    AudioSource myAudio;
+    public AudioClip spit;
+    public float volume;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +29,11 @@ public class EnemyShoot : MonoBehaviour
         if (shooting == true)
         {
             timer += Time.deltaTime;
+
+            if(timer >= 2)
+            {
+                myAudio.PlayOneShot(spit, volume);
+            }
 
             if (timer >= maxCooldown)
             {

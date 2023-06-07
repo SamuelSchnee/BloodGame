@@ -273,7 +273,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
-  damage: 30
+  damage: 20
 --- !u!95 &739486871
 Animator:
   serializedVersion: 4
