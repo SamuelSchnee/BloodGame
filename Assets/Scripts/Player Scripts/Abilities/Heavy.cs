@@ -10,14 +10,26 @@ public class Heavy : Ability
     public float maxCooldown = 1;
     public BloodCollection bloodCollect;
 
+    public GameObject mySprite;
+    Animator myAnimator;
+
     private void Start()
     {
         plyrCntrl = GetComponent<PlayerController>();
         bloodCollect = GetComponent<BloodCollection>();
+        myAnimator = mySprite.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
+        if(heavyOn == false)
+        {
+            myAnimator.SetBool("Heavy", false);
+        }
+        else
+        {
+            myAnimator.SetBool("Heavy", true);
+        }
         if (Input.GetKeyDown(KeyCode.R) && cooldown <= 0 && bloodCollect.heavyUS ==1)
         {
             Debug.Log("hitting R");

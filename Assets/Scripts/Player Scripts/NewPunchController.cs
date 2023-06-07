@@ -4,24 +4,60 @@ using UnityEngine;
 
 public class NewPunchController : Ability
 {
+    public bool animate;
     public Transform punchHitbox;
     public LayerMask enemyLayers;
     public float hitboxSize = .5f;
     public Health enemyHealth;
 
-    public float attackRate = 2f;
-    float nextAttackTime = 0;
+    public float maxCooldown = 1;
+    public float myCooldown;
 
-    // Update is called once per frame
+    public float attackRate = 2f;
+    public float nextAttackTime = 0;
+
+    public GameObject mySprite;
+    Animator myAnimator;
+
+    private void Start()
+    {
+        myAnimator = mySprite.GetComponent<Animator>();
+        myCooldown = 0;
+    }
+
     void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if(myCooldown >= 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            myCooldown -= Time.deltaTime;
+        }
+
+        if(myCooldown < .5)
+        {
+            myAnimator.SetBool("Punching", false);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (myCooldown <= 0)
             {
+                myAnimator.SetBool("Punching", true);
                 Attack();
+                Debug.Log("check");
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+        }
+
+        if(nextAttackTime <= 2)
+        {
+           myAnimator.SetBool("Punching", false);
+        }
+
+        if(animate == true)
+        {
+            //myAnimator.SetBool("Punching", false);
+            Debug.Log("check2");
+            animate = false;
         }
     }
 
@@ -35,6 +71,8 @@ public class NewPunchController : Ability
             enemyHealth = enemy.GetComponent<Health>();
             enemyHealth.TakeDamage(damage);
         }
+        animate = true;
+        myCooldown = maxCooldown;
     }
 
     private void OnDrawGizmosSelected()
