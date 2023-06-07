@@ -23,37 +23,7 @@ public class StoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spitterKilled >= 5)
-        {
-            foreach(GameObject grass in allGrass)
-            {
-                grass.SetActive(true);
-            }
-        }
 
-        if(frogKilled >= 4)
-        {
-            foreach(GameObject water in cleanPools)
-            {
-                water.SetActive(false);
-            }
-            foreach(GameObject water in dirtyPools)
-            {
-                water.SetActive(true);
-            }
-        }
-        if(flyKilled >= 5)
-        {
-            fog.SetActive(true);
-        }
-
-        if(crusherKilled >= 4)
-        {
-            foreach(GameObject moss in moss)
-            {
-                moss.SetActive(true);
-            }
-        }
     }
 
     public void ProgressStory(string enemy)
@@ -73,6 +43,41 @@ public class StoryController : MonoBehaviour
         else if(enemy == "crusher")
         {
             crusherKilled++;
+        }
+    }
+
+    public void UpdateStory()
+    {
+        if (spitterKilled >= 5)
+        {
+            foreach (GameObject grass in allGrass)
+            {
+                grass.SetActive(true);
+            }
+        }
+
+        if (frogKilled >= 4)
+        {
+            foreach (GameObject water in cleanPools)
+            {
+                water.SetActive(false);
+            }
+            foreach (GameObject water in dirtyPools)
+            {
+                water.SetActive(true);
+            }
+        }
+        if (flyKilled >= 5)
+        {
+            fog.SetActive(true);
+        }
+
+        if (crusherKilled >= 4)
+        {
+            foreach (GameObject moss in moss)
+            {
+                moss.SetActive(true);
+            }
         }
     }
 }

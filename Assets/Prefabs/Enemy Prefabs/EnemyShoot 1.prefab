@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 100
-  armor: 5
+  maxHealth: 75
+  armor: 0
   invulnerable: 0
   parent: {fileID: 0}
   OnDeath:
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7667054218980008753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
   m_Name: 
@@ -377,10 +377,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8497313161653132444}
-  - component: {fileID: 8497313161653132445}
   - component: {fileID: 1629893475}
   - component: {fileID: 1629893476}
-  m_Layer: 8
+  - component: {fileID: 268249527}
+  - component: {fileID: 268249528}
+  m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,20 +403,6 @@ Transform:
   m_Father: {fileID: 7667054218980008757}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8497313161653132445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8497313161653132447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d86cd31dad18ab40a11f0ff5d147096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  playerHealth: {fileID: 0}
 --- !u!70 &1629893475
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -426,7 +413,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.18, y: -0.3}
@@ -442,9 +429,62 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.64, y: -0.03}
   serializedVersion: 2
   m_Radius: 0.41
+--- !u!114 &268249527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497313161653132447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodType: shoot
+  bloodAmount: 20
+--- !u!114 &268249528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497313161653132447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52460e059abbce84a87e6c4ed5eec8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 75
+  armor: 0
+  invulnerable: 0
+  parent: {fileID: 7667054218980008753}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7667054218980008758}
+        m_TargetAssemblyTypeName: GiveBlood, Assembly-CSharp
+        m_MethodName: GiveBloodToPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  healthBar: {fileID: 0}
+  storymaster: {fileID: 0}
+  story: {fileID: 0}
+  enemyType: spitter

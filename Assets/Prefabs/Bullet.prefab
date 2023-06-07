@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.43, y: -3.6, z: 0}
   m_LocalScale: {x: 0.28586, y: 0.28586, z: 0.28586}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3821000319230863437}
   m_Father: {fileID: 0}
@@ -137,7 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 25
+  damage: 50
+  bulletLife: 1
   targetLocation: {x: 0, y: 0}
   bulletLocation: {x: 0, y: 0}
   targetDirection: {x: 0, y: 0}
@@ -173,6 +175,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15.612596, y: 15.612596, z: 15.612596}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4116668764218768685}
   m_RootOrder: 0

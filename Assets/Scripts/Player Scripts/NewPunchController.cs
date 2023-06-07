@@ -32,7 +32,7 @@ public class NewPunchController : Ability
             myCooldown -= Time.deltaTime;
         }
 
-        if(myCooldown < .5)
+        if(myCooldown < .5f)
         {
             myAnimator.SetBool("Punching", false);
         }

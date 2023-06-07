@@ -230,7 +230,6 @@ GameObject:
   - component: {fileID: 2272730651524560563}
   - component: {fileID: 2272730651524560565}
   - component: {fileID: 2272730651524560561}
-  - component: {fileID: 2272730651524560560}
   - component: {fileID: 563832655}
   - component: {fileID: 7076732964513206069}
   m_Layer: 7
@@ -258,7 +257,7 @@ Transform:
   - {fileID: 2272730650395722128}
   - {fileID: 136562970}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2272730651524560565
 Rigidbody2D:
@@ -297,10 +296,11 @@ MonoBehaviour:
   maxHealth: 100
   armor: 5
   invulnerable: 0
+  parent: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2272730651524560560}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GiveBlood, Assembly-CSharp
         m_MethodName: GiveBloodToPlayer
         m_Mode: 1
@@ -316,20 +316,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
---- !u!114 &2272730651524560560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2272730651524560567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodType: djump
-  bloodAmount: 10
+  storymaster: {fileID: 0}
+  story: {fileID: 0}
+  enemyType: 
 --- !u!114 &563832655
 MonoBehaviour:
   m_ObjectHideFlags: 0

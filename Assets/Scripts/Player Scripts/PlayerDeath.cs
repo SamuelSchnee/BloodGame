@@ -19,6 +19,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void playerDeath()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("IntroScene");
     }
 }

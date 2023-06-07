@@ -10,9 +10,14 @@ public class LoadZoneController : MonoBehaviour
     public GameObject controller;
     public BackgroundController backgroundCntlr;
 
+    public GameObject storyMaster;
+    public StoryController story;
+
     private void Start()
     {
         backgroundCntlr = controller.GetComponent<BackgroundController>();
+        storyMaster = GameObject.FindGameObjectWithTag("Story");
+        story = storyMaster.GetComponent<StoryController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +28,7 @@ public class LoadZoneController : MonoBehaviour
             {
                 Debug.Log("moving player");
                 other.transform.position = desiredLocation.transform.position;
+                story.UpdateStory();
             }
             if(goingToForest == true)
             {

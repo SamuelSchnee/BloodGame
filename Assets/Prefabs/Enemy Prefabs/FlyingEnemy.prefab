@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fbb2bf928906c49aaf7f94858624bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodType: slam
+  bloodType: heavy
   bloodAmount: 20
 --- !u!1 &5365295254151613701
 GameObject:
