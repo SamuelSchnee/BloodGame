@@ -30,10 +30,10 @@ public class EnemyShoot : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if(timer >= 2)
+            /*if(timer >= 2)
             {
                 myAudio.PlayOneShot(spit, volume);
-            }
+            }*/
 
             if (timer >= maxCooldown)
             {

@@ -221,6 +221,8 @@ MonoBehaviour:
   bulletSpeed: 8
   shooting: 0
   maxCooldown: 2
+  spit: {fileID: 0}
+  volume: 0
 --- !u!58 &9061180188174351892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -469,7 +471,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7667054218980008758}
+      - m_Target: {fileID: 268249527}
         m_TargetAssemblyTypeName: GiveBlood, Assembly-CSharp
         m_MethodName: GiveBloodToPlayer
         m_Mode: 1

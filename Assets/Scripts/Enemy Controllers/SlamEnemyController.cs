@@ -45,7 +45,14 @@ public class SlamEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cooldown >= 0)
+        if (groundBody.IsTouchingLayers(groundLayer))
+        {
+            enemyrb.velocity = Vector2.zero;
+            attacking = true;
+            plzAttack = true;
+        }
+
+        if (cooldown >= 0)
         {
             cooldown -= Time.deltaTime;
             targetFound = false;
@@ -61,6 +68,7 @@ public class SlamEnemyController : MonoBehaviour
 
         if (targetFound == true && doneAttacking == false && cooldown <= 0)
         {
+            cooldown = maxcooldown;
             pathing.mustPatorl = false;
             enemyrb.velocity = Vector2.zero;
             StartCoroutine(Slam());
@@ -100,7 +108,7 @@ public class SlamEnemyController : MonoBehaviour
         }
         if(transform.position.y >= enemyReturn.transform.position.y)
         {
-            cooldown = maxcooldown;
+            //cooldown = maxcooldown;
             enemyrb.velocity = Vector2.zero;
             pathing.mustPatorl = true;
             Debug.Log("returnToPathing");
@@ -110,17 +118,11 @@ public class SlamEnemyController : MonoBehaviour
 
     IEnumerator Slam()
     {
+        Debug.Log("callingSlam");
         yield return new WaitForSecondsRealtime(.2f);
         enemyrb.velocity = new Vector2(0, -30);
 
         myaudio.PlayOneShot(slam, volume);
-
-        if (groundBody.IsTouchingLayers(groundLayer))
-        {
-            enemyrb.velocity = Vector2.zero;
-            attacking = true;
-            plzAttack = true;
-        }
     }
 
     private void OnDrawGizmosSelected()
