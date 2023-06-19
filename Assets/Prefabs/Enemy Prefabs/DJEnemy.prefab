@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 150
+  maxHealth: 200
   armor: 0
   invulnerable: 0
   parent: {fileID: 3745745222333565362}
@@ -273,7 +273,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
-  damage: 20
+  damage: 30
 --- !u!95 &739486871
 Animator:
   serializedVersion: 4

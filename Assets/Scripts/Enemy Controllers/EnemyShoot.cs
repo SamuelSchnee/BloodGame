@@ -20,7 +20,7 @@ public class EnemyShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myAudio = GetComponent<AudioSource>();
+        //myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
